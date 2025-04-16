@@ -696,6 +696,34 @@
     "fol": "ForAll(s, (¬write_paper(s) ∧ ¬give_presentation(s)) → fail(s,quantum_mechanics))"
   },
   {
+    "premise": "A student who understands wave-particle duality can critique interpretations of quantum mechanics.",
+    "fol": "∀x (Student(x) ∧ UnderstandsDuality(x) → CritiquesInterpretations(x))"
+  },
+  {
+    "premise": "Critiquing quantum interpretations enables assessing quantum realism debates.",
+    "fol": "∀x (Student(x) ∧ CritiquesInterpretations(x) → AssessesRealism(x))"
+  },
+  {
+    "premise": "A student who assesses realism debates is prepared for advanced research.",
+    "fol": "∀x (Student(x) ∧ AssessesRealism(x) → PreparedResearch(x))"
+  },
+  {
+    "premise": "A prepared researcher can contribute through publications or seminars.",
+    "fol": "∀x (Student(x) ∧ PreparedResearch(x) → ContributesPublicationOrSeminar(x))"
+  },
+  {
+    "premise": "Avoiding both publications and seminars means no academic contribution.",
+    "fol": "∀x (Student(x) ∧ ¬Publication(x) ∧ ¬Seminar(x) → ¬Contributes(x))"
+  },
+  {
+    "premise": "Academic contribution is needed for a research position.",
+    "fol": "∀x (Student(x) ∧ SecuresPosition(x) → Contributes(x))"
+  },
+  {
+    "premise": "A research position grants access to quantum laboratories.",
+    "fol": "∀x (Student(x) ∧ SecuresPosition(x) → AccessesLab(x))"
+  },
+  {
     "premise": "Ebbinghaus' forgetting curve formula: R = e^(-t/S), where R is retention rate, t is elapsed time, and S is review interval.",
     "fol": "ForAll(s, ForAll(t, Retention(s,t) = e^(-t/S)))"
   },
@@ -1676,44 +1704,32 @@
     "fol": "∀x (S(x) → (H(x) → E(x)))"
   },
   {
-    "premise": "If a student is not engaged, they will not understand the material.",
-    "fol": "∀x (¬engage(x) → ¬understand(x))"
+    "premise": "Every Python project is well-structured.",
+    "fol": "∀x (Project(x) → WellStructured(x))"
   },
   {
-    "premise": "All students complete assignments on time.",
-    "fol": "∀x complete(x)"
+    "premise": "If a Python project is well-structured, then it is optimized.",
+    "fol": "∀x (Project(x) ∧ WellStructured(x) → Optimized(x))"
   },
   {
-    "premise": "At least one student is enrolled in a challenging course.",
-    "fol": "∃x enrolled(x)"
+    "premise": "If a Python project is well-tested, then it is optimized.",
+    "fol": "∀x (Project(x) ∧ WellTested(x) → Optimized(x))"
   },
   {
-    "premise": "At least one student understands the material.",
-    "fol": "∃x understand(x)"
+    "premise": "If a Python project is well-tested, then it follows PEP 8 standards.",
+    "fol": "∀x (Project(x) ∧ WellTested(x) → FollowsPEP8(x))"
   },
   {
-    "premise": "If a student attends lectures regularly, they complete assignments on time.",
-    "fol": "∀x (attend(x) → complete(x))"
+    "premise": "All Python projects have clean and readable code.",
+    "fol": "∀x (Project(x) → CleanReadable(x))"
   },
   {
-    "premise": "If a student is not engaged, they will not attend lectures regularly.",
-    "fol": "∀x (¬engage(x) → ¬attend(x))"
+    "premise": "All Python projects are easy to maintain.",
+    "fol": "∀x (Project(x) → EasyToMaintain(x))"
   },
   {
-    "premise": "If at least one student is in a challenging course, then if that student attends lectures, they will complete assignments on time.",
-    "fol": "∃x enrolled(x) → (attend(x) → complete(x))"
-  },
-  {
-    "premise": "If a student completes assignments on time, they attend lectures regularly.",
-    "fol": "∀x (complete(x) → attend(x))"
-  },
-  {
-    "premise": "If a student does not complete assignments on time, they will not understand the material.",
-    "fol": "∀x (¬complete(x) → ¬understand(x))"
-  },
-  {
-    "premise": "If a student is engaged, they achieve high grades.",
-    "fol": "∀x (engage(x) → achieve(x))"
+    "premise": "If a Python project is easy to maintain, then it is well-tested.",
+    "fol": "∀x (Project(x) ∧ EasyToMaintain(x) → WellTested(x))"
   },
   {
     "premise": "If a student is not motivated, they will not pass the exams.",
@@ -3729,23 +3745,23 @@
   },
   {
     "premise": "If x understands the lecture, then x passes the exam.",
-    "fol": "(U(x) → P(x))"
+    "fol": "∀x (U(x) → P(x))"
   },
   {
     "premise": "There exists at least one student.",
-    "fol": "Exists(x, S(x))"
+    "fol": "∃x S(x)"
   },
   {
     "premise": "If 'understanding the lecture implies taking the course' is true, then 'understanding the lecture implies passing the exam' is also true.",
-    "fol": "((U(x) → T(x)) → (U(x) → P(x)))"
+    "fol": "(∀x (U(x) → T(x)) → ∀x (U(x) → P(x)))"
   },
   {
     "premise": "If x is not registered for the course, then x does not take the course.",
-    "fol": "(¬R(x) → ¬T(x))"
+    "fol": "∀x (¬R(x) → ¬T(x))"
   },
   {
     "premise": "If x is registered for the course, then x is a student.",
-    "fol": "(R(x) → S(x))"
+    "fol": "∀x (R(x) → S(x))"
   },
   {
     "premise": "At least one person is registered for a course.",
@@ -5634,6 +5650,166 @@
   {
     "premise": "Everyone who has gained knowledge has read a book.",
     "fol": "ForAll(x, GainsKnowledge(x) → ReadsBook(x))"
+  },
+  {
+    "premise": "All machine learning models require data preprocessing.",
+    "fol": "∀x (Model(x) → ∃y (Dataset(y) ∧ TrainedOn(y, x) ∧ PreprocessingRequired(y)))"
+  },
+  {
+    "premise": "If a dataset has missing values, then the model's performance decreases.",
+    "fol": "∀x (Dataset(x) ∧ MissingValues(x) → ∃y (Model(y) ∧ TrainedOn(x, y) ∧ DecreasedPerformance(y)))"
+  },
+  {
+    "premise": "If a dataset is not normalized, then it affects model accuracy.",
+    "fol": "∀x (Dataset(x) ∧ ¬Normalized(x) → ∃y (Model(y) ∧ TrainedOn(x, y) ∧ AffectsAccuracy(y)))"
+  },
+  {
+    "premise": "If a model performs well, then its dataset is properly preprocessed.",
+    "fol": "∀x (Model(x) ∧ GoodPerformance(x) → ∃y (Dataset(y) ∧ TrainedOn(y, x) ∧ ProperlyPreprocessed(y)))"
+  },
+  {
+    "premise": "If a dataset is not normalized, then it has missing values.",
+    "fol": "∀x (Dataset(x) ∧ ¬Normalized(x) → MissingValues(x))"
+  },
+  {
+    "premise": "There exists at least one singular matrix.",
+    "fol": "∃x (Matrix(x) ∧ SingularMatrix(x))"
+  },
+  {
+    "premise": "If a matrix has a nonzero determinant, then it is invertible.",
+    "fol": "∀x (Matrix(x) ∧ NonzeroDet(x) → Invertible(x))"
+  },
+  {
+    "premise": "If a matrix is symmetric, then it is orthogonally diagonalizable.",
+    "fol": "∀x (Matrix(x) ∧ Symmetric(x) → OrthogonallyDiagonalizable(x))"
+  },
+  {
+    "premise": "If a matrix is orthogonally diagonalizable, then it is symmetric.",
+    "fol": "∀x (Matrix(x) ∧ OrthogonallyDiagonalizable(x) → Symmetric(x))"
+  },
+  {
+    "premise": "All diagonal matrices are invertible.",
+    "fol": "∀x (Matrix(x) ∧ DiagonalMatrix(x) → Invertible(x))"
+  },
+  {
+    "premise": "All students eventually learn C++.",
+    "fol": "∀x (Student(x) → LearnsCPP(x))"
+  },
+  {
+    "premise": "If a student learns C++, then they will understand object-oriented programming.",
+    "fol": "∀x (Student(x) ∧ LearnsCPP(x) → UnderstandsOOP(x))"
+  },
+  {
+    "premise": "All students eventually understand memory management.",
+    "fol": "∀x (Student(x) → UnderstandsMemoryManagement(x))"
+  },
+  {
+    "premise": "If a student does not understand pointers, then they will not understand memory management.",
+    "fol": "∀x (Student(x) ∧ ¬UnderstandsPointers(x) → ¬UnderstandsMemoryManagement(x))"
+  },
+  {
+    "premise": "If a student does not understand pointers, then they will not understand C++.",
+    "fol": "∀x (Student(x) ∧ ¬UnderstandsPointers(x) → ¬UnderstandsCPP(x))"
+  },
+  {
+    "premise": "If a student does not understand pointers, then they will not understand data structures.",
+    "fol": "∀x (Student(x) ∧ ¬UnderstandsPointers(x) → ¬UnderstandsDataStructures(x))"
+  },
+  {
+    "premise": "If a student understands concepts, then they practice regularly.",
+    "fol": "∀x (Student(x) ∧ UnderstandsConcepts(x) → PracticesRegularly(x))"
+  },
+  {
+    "premise": "If a student practices regularly, then they improve their skills.",
+    "fol": "∀x (Student(x) ∧ PracticesRegularly(x) → ImprovesSkills(x))"
+  },
+  {
+    "premise": "All students take notes.",
+    "fol": "∀x (Student(x) → TakesNotes(x))"
+  },
+  {
+    "premise": "If a student takes notes, then they study theory.",
+    "fol": "∀x (Student(x) ∧ TakesNotes(x) → StudiesTheory(x))"
+  },
+  {
+    "premise": "If a student submits an assignment, then they receive a score.",
+    "fol": "∀x (Student(x) ∧ SubmitsAssignment(x) → ReceivesScore(x))"
+  },
+  {
+    "premise": "All students submit work.",
+    "fol": "∀x (Student(x) → SubmitsWork(x))"
+  },
+  {
+    "premise": "If a student submits work, then they follow the guidelines.",
+    "fol": "∀x (Student(x) ∧ SubmitsWork(x) → FollowsGuidelines(x))"
+  },
+  {
+    "premise": "If a student follows the guidelines, then they complete all requirements.",
+    "fol": "∀x (Student(x) ∧ FollowsGuidelines(x) → CompletesRequirements(x))"
+  },
+  {
+    "premise": "If a model is trained on a dataset, then it learns representations.",
+    "fol": "∀x (Model(x) ∧ Trained(x) → LearnsRepresentations(x))"
+  },
+  {
+    "premise": "If a model learns representations, then it can extract features.",
+    "fol": "∀x (Model(x) ∧ LearnsRepresentations(x) → ExtractsFeatures(x))"
+  },
+  {
+    "premise": "If a model extracts features, then it has been trained.",
+    "fol": "∀x (Model(x) ∧ ExtractsFeatures(x) → Trained(x))"
+  },
+  {
+    "premise": "There exists a neural network that has been trained.",
+    "fol": "∃x (Model(x) ∧ NeuralNetwork(x) ∧ Trained(x))"
+  },
+  {
+    "premise": "If a student studies regularly, then they understand key concepts.",
+    "fol": "∀x (Student(x) ∧ StudyRegularly(x) → UnderstandsKeyConcepts(x))"
+  },
+  {
+    "premise": "If a student understands key concepts, then they perform well in the test.",
+    "fol": "∀x (Student(x) ∧ UnderstandsKeyConcepts(x) → PerformsWell(x))"
+  },
+  {
+    "premise": "All students who study regularly pass the semester test.",
+    "fol": "∀x (Student(x) ∧ StudyRegularly(x) → PassesSemesterTest(x))"
+  },
+  {
+    "premise": "There exists a student who studies effectively and passes the test.",
+    "fol": "∃x (Student(x) ∧ StudiesEffectively(x) ∧ PassesSemesterTest(x))"
+  },
+  {
+    "premise": "If a student completes assignments on time, then they understand the material.",
+    "fol": "∀x (Student(x) ∧ CompletesAssignmentsOnTime(x) → UnderstandsMaterial(x))"
+  },
+  {
+    "premise": "If a student understands the material, then they perform well on exams.",
+    "fol": "∀x (Student(x) ∧ UnderstandsMaterial(x) → PerformsWellOnExams(x))"
+  },
+  {
+    "premise": "If a student practices regularly, then they study effectively.",
+    "fol": "∀x (Student(x) ∧ PracticesRegularly(x) → StudiesEffectively(x))"
+  },
+  {
+    "premise": "If a student completes assignments on time, then they achieve an A grade.",
+    "fol": "∀x (Student(x) ∧ CompletesAssignmentsOnTime(x) → AchievesAGrade(x))"
+  },
+  {
+    "premise": "If a person studies hard, then they can pass the test.",
+    "fol": "∀x (StudyHard(x) → PassTest(x))"
+  },
+  {
+    "premise": "If a person passes the test, they graduate the school.",
+    "fol": "∀x (PassTest(x) → Graduate(x))"
+  },
+  {
+    "premise": "If they graduate the school, they are happy.",
+    "fol": "∀x (Graduate(x) → Happy(x))"
+  },
+  {
+    "premise": "Bob never lazy.",
+    "fol": "∀x (Bob(x) → StudyHard(x))"
   },
   {
     "premise": "All students who are freshmen have to pass Calculus 1 and Calculus 2.",
@@ -7624,36 +7800,168 @@
     "fol": "CountFails(G1, P3) ≥ 1"
   },
   {
-    "premise": "An exam postponement is valid only if the student has a justified absence, submits a request, the request is within the deadline, and it is approved by the department.",
-    "fol": "∀s ∀c ∀e ∀sem (GrantedPostponement(s, c, e, sem) ⇔ JustifiedAbsence(s, c, e, sem) ∧ RequestedPostponement(s, c, e, sem) ∧ WithinPostponementDeadline(s, c, e, sem) ∧ DepartmentApproved(s, c, e, sem))"
+    "premise": "If a student does not attend the corresponding theory session, they are not eligible for the related practice session.",
+    "fol": "∀x ∀t ∀p (Student(x) ∧ ¬Attended(x, t) ∧ CorrespondsTo(t, p) → ¬Eligible(x, p))"
   },
   {
-    "premise": "If a postponement is granted, the system must schedule a makeup exam.",
-    "fol": "∀s ∀c ∀e ∀sem (GrantedPostponement(s, c, e, sem) → MakeupExamScheduled(s, c, e, sem))"
+    "premise": "Linh did not attend theory session T5.",
+    "fol": "Student(Linh) ∧ ¬Attended(Linh, T5)"
   },
   {
-    "premise": "A final course grade is considered valid only if the student completed the final exam and any required postponed midterm.",
-    "fol": "∀s ∀c ∀sem (ValidCourseGrade(s, c, sem) ⇔ FinalExamCompleted(s, c, sem) ∧ MakeupExamCompleted(s, c, Midterm, sem))"
+    "premise": "Theory session T5 corresponds to practice session P5.",
+    "fol": "CorrespondsTo(T5, P5)"
   },
   {
-    "premise": "Thao had a justified absence for CH3002’s midterm in Spring.",
-    "fol": "JustifiedAbsence(Thao, CH3002, Midterm, Spring)"
+    "premise": "If a group is assigned to a session, passes the oral check, has sufficient data, and passes the calculation, then the session does not fail.",
+    "fol": "∀g ∀s (Group(g) ∧ AssignedToSession(g, s) ∧ OralCheckPass(g, s) ∧ SufficientData(g, s) ∧ CalculationPass(g, s) → ¬SessionFail(s))"
   },
   {
-    "premise": "Thao’s postponement for CH3002’s midterm was approved.",
-    "fol": "GrantedPostponement(Thao, CH3002, Midterm, Spring)"
+    "premise": "Group G3 is assigned to session P5.",
+    "fol": "Group(G3) ∧ AssignedToSession(G3, P5)"
   },
   {
-    "premise": "A makeup midterm exam was scheduled for Thao for CH3002 in Spring.",
-    "fol": "MakeupExamScheduled(Thao, CH3002, Midterm, Spring)"
+    "premise": "Group G3 passed the oral check and had sufficient data for P5.",
+    "fol": "Group(G3) ∧ OralCheckPass(G3, P5) ∧ SufficientData(G3, P5)"
   },
   {
-    "premise": "Thao did not complete the scheduled makeup midterm exam for CH3002 in Spring.",
-    "fol": "¬MakeupExamCompleted(Thao, CH3002, Midterm, Spring)"
+    "premise": "If a group passes the oral check and has sufficient data, they pass the calculation.",
+    "fol": "∀g ∀s (Group(g) ∧ OralCheckPass(g, s) ∧ SufficientData(g, s) → CalculationPass(g, s))"
   },
   {
-    "premise": "Thao completed the final exam for CH3002 in Spring.",
-    "fol": "FinalExamCompleted(Thao, CH3002, Spring)"
+    "premise": "If a student does not attend the corresponding theory session, they are not eligible for the related practice session.",
+    "fol": "∀x ∀t ∀p (Student(x) ∧ ¬Attended(x, t) ∧ CorrespondsTo(t, p) → ¬Eligible(x, p))"
+  },
+  {
+    "premise": "Linh did not attend theory session T5.",
+    "fol": "Student(Linh) ∧ ¬Attended(Linh, T5)"
+  },
+  {
+    "premise": "Theory session T5 corresponds to practice session P5.",
+    "fol": "CorrespondsTo(T5, P5)"
+  },
+  {
+    "premise": "If a group is assigned to a session, passes the oral check, has sufficient data, and passes the calculation, then the session does not fail.",
+    "fol": "∀g ∀s (Group(g) ∧ AssignedToSession(g, s) ∧ OralCheckPass(g, s) ∧ SufficientData(g, s) ∧ CalculationPass(g, s) → ¬SessionFail(s))"
+  },
+  {
+    "premise": "Group G3 is assigned to session P5.",
+    "fol": "Group(G3) ∧ AssignedToSession(G3, P5)"
+  },
+  {
+    "premise": "Group G3 passed the oral check and had sufficient data for P5.",
+    "fol": "Group(G3) ∧ OralCheckPass(G3, P5) ∧ SufficientData(G3, P5)"
+  },
+  {
+    "premise": "If a group passes the oral check and has sufficient data, they pass the calculation.",
+    "fol": "∀g ∀s (Group(g) ∧ OralCheckPass(g, s) ∧ SufficientData(g, s) → CalculationPass(g, s))"
+  },
+  {
+    "premise": "If a student does not attend the corresponding theory session, they are not eligible for the related practice session.",
+    "fol": "∀x ∀t ∀p (Student(x) ∧ ¬Attended(x, t) ∧ CorrespondsTo(t, p) → ¬Eligible(x, p))"
+  },
+  {
+    "premise": "Linh did not attend theory session T5.",
+    "fol": "Student(Linh) ∧ ¬Attended(Linh, T5)"
+  },
+  {
+    "premise": "Theory session T5 corresponds to practice session P5.",
+    "fol": "CorrespondsTo(T5, P5)"
+  },
+  {
+    "premise": "If a group is assigned to a session, passes the oral check, has sufficient data, and passes the calculation, then the session does not fail.",
+    "fol": "∀g ∀s (Group(g) ∧ AssignedToSession(g, s) ∧ OralCheckPass(g, s) ∧ SufficientData(g, s) ∧ CalculationPass(g, s) → ¬SessionFail(s))"
+  },
+  {
+    "premise": "Group G3 is assigned to session P5.",
+    "fol": "Group(G3) ∧ AssignedToSession(G3, P5)"
+  },
+  {
+    "premise": "Group G3 passed the oral check and had sufficient data for P5.",
+    "fol": "Group(G3) ∧ OralCheckPass(G3, P5) ∧ SufficientData(G3, P5)"
+  },
+  {
+    "premise": "If a group passes the oral check and has sufficient data, they pass the calculation.",
+    "fol": "∀g ∀s (Group(g) ∧ OralCheckPass(g, s) ∧ SufficientData(g, s) → CalculationPass(g, s))"
+  },
+  {
+    "premise": "Students with unpaid tuition cannot have valid withdrawals.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬PaidTuition(s, c, sem) → ¬IsValidWithdrawal(s, c, sem))"
+  },
+  {
+    "premise": "Lan has unpaid tuition fees for C3 in Fall.",
+    "fol": "Student(Lan) ∧ Course(C3) ∧ Semester(Fall) ∧ ¬PaidTuition(Lan, C3, Fall)"
+  },
+  {
+    "premise": "If a withdrawal is valid, the student receives an R grade and the course is excluded from their transcript.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ IsValidWithdrawal(s, c, sem) → GetsWithdrawnGrade(s, c, sem) ∧ ¬IsInTranscript(s, c, sem))"
+  },
+  {
+    "premise": "Invalid withdrawals do not result in an R grade.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬IsValidWithdrawal(s, c, sem) → ¬GetsWithdrawnGrade(s, c, sem))"
+  },
+  {
+    "premise": "Invalid withdrawals result in the course remaining on the transcript.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬IsValidWithdrawal(s, c, sem) → IsInTranscript(s, c, sem))"
+  },
+  {
+    "premise": "Students with unpaid tuition cannot have valid withdrawals.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬PaidTuition(s, c, sem) → ¬IsValidWithdrawal(s, c, sem))"
+  },
+  {
+    "premise": "Lan has unpaid tuition fees for C3 in Fall.",
+    "fol": "Student(Lan) ∧ Course(C3) ∧ Semester(Fall) ∧ ¬PaidTuition(Lan, C3, Fall)"
+  },
+  {
+    "premise": "If a withdrawal is valid, the student receives an R grade and the course is excluded from their transcript.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ IsValidWithdrawal(s, c, sem) → GetsWithdrawnGrade(s, c, sem) ∧ ¬IsInTranscript(s, c, sem))"
+  },
+  {
+    "premise": "Invalid withdrawals do not result in an R grade.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬IsValidWithdrawal(s, c, sem) → ¬GetsWithdrawnGrade(s, c, sem))"
+  },
+  {
+    "premise": "Invalid withdrawals result in the course remaining on the transcript.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬IsValidWithdrawal(s, c, sem) → IsInTranscript(s, c, sem))"
+  },
+  {
+    "premise": "Students with unpaid tuition cannot have valid withdrawals.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬PaidTuition(s, c, sem) → ¬IsValidWithdrawal(s, c, sem))"
+  },
+  {
+    "premise": "Lan has unpaid tuition fees for C3 in Fall.",
+    "fol": "Student(Lan) ∧ Course(C3) ∧ Semester(Fall) ∧ ¬PaidTuition(Lan, C3, Fall)"
+  },
+  {
+    "premise": "If a withdrawal is valid, the student receives an R grade and the course is excluded from their transcript.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ IsValidWithdrawal(s, c, sem) → GetsWithdrawnGrade(s, c, sem) ∧ ¬IsInTranscript(s, c, sem))"
+  },
+  {
+    "premise": "Invalid withdrawals do not result in an R grade.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬IsValidWithdrawal(s, c, sem) → ¬GetsWithdrawnGrade(s, c, sem))"
+  },
+  {
+    "premise": "Invalid withdrawals result in the course remaining on the transcript.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬IsValidWithdrawal(s, c, sem) → IsInTranscript(s, c, sem))"
+  },
+  {
+    "premise": "Students with unpaid tuition cannot have valid withdrawals.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬PaidTuition(s, c, sem) → ¬IsValidWithdrawal(s, c, sem))"
+  },
+  {
+    "premise": "Lan has unpaid tuition fees for C3 in Fall.",
+    "fol": "Student(Lan) ∧ Course(C3) ∧ Semester(Fall) ∧ ¬PaidTuition(Lan, C3, Fall)"
+  },
+  {
+    "premise": "If a withdrawal is valid, the student receives an R grade and the course is excluded from their transcript.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ IsValidWithdrawal(s, c, sem) → GetsWithdrawnGrade(s, c, sem) ∧ ¬IsInTranscript(s, c, sem))"
+  },
+  {
+    "premise": "Invalid withdrawals do not result in an R grade.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬IsValidWithdrawal(s, c, sem) → ¬GetsWithdrawnGrade(s, c, sem))"
+  },
+  {
+    "premise": "Invalid withdrawals result in the course remaining on the transcript.",
+    "fol": "∀s ∀c ∀sem (Student(s) ∧ Course(c) ∧ Semester(sem) ∧ ¬IsValidWithdrawal(s, c, sem) → IsInTranscript(s, c, sem))"
   },
   {
     "premise": "There exists at least one person who has submitted a scholarship application.",
@@ -8526,6 +8834,90 @@
   {
     "premise": "If x is not successfully completing offline study tasks, then x is not completing online study tasks",
     "fol": "∀x (¬T(x) → ¬O(x))"
+  },
+  {
+    "premise": "If x is not studying offline, then x does not successfully complete offline study tasks",
+    "fol": "∀x (¬F(x) → ¬T(x))"
+  },
+  {
+    "premise": "If x is not studying online, then x does not successfully complete online study tasks",
+    "fol": "∀x (¬N(x) → ¬O(x))"
+  },
+  {
+    "premise": "There exists a student who successfully completes offline study tasks",
+    "fol": "∃x (S(x) ∧ T(x))"
+  },
+  {
+    "premise": "If x is studying online, then x is able to effectively manage offline and online study time",
+    "fol": "∀x (N(x) → M(x))"
+  },
+  {
+    "premise": "If x is not successfully completing offline study tasks, then x is not completing online study tasks",
+    "fol": "∀x (¬T(x) → ¬O(x))"
+  },
+  {
+    "premise": "If a student lacks training, then they lack problem-solving skills.",
+    "fol": "∀x (Student(x) ∧ ¬participates_training(x) → ¬problem_solving_skills(x))"
+  },
+  {
+    "premise": "All students are undergoing training.",
+    "fol": "∀x (Student(x) → participates_training(x))"
+  },
+  {
+    "premise": "If a student has problem-solving skills, then they have foundational knowledge.",
+    "fol": "∀x (Student(x) ∧ problem_solving_skills(x) → foundational_knowledge(x))"
+  },
+  {
+    "premise": "If a student has university readiness, then they have problem-solving skills.",
+    "fol": "∀x (Student(x) ∧ university_ready(x) → problem_solving_skills(x))"
+  },
+  {
+    "premise": "If a student has training, then they have skills.",
+    "fol": "∀x (Student(x) ∧ training(x) → skills(x))"
+  },
+  {
+    "premise": "All students have training.",
+    "fol": "∀x (Student(x) → training(x))"
+  },
+  {
+    "premise": "Some students have reasoning skills if any student has skills.",
+    "fol": "∀x (Student(x) ∧ skills(x) → ∃y (Student(y) ∧ reasoning_skills(y)))"
+  },
+  {
+    "premise": "All students have proficiency.",
+    "fol": "∀x (Student(x) → proficiency(x))"
+  },
+  {
+    "premise": "If a student has proficiency, then they have qualifications.",
+    "fol": "∀x (Student(x) ∧ proficiency(x) → qualifications(x))"
+  },
+  {
+    "premise": "If a student lacks qualifications, then they lack understanding.",
+    "fol": "∀x (Student(x) ∧ ¬qualifications(x) → ¬understanding(x))"
+  },
+  {
+    "premise": "If a student has training, then they have skills.",
+    "fol": "∀x (Student(x) ∧ training(x) → skills(x))"
+  },
+  {
+    "premise": "All students have training.",
+    "fol": "∀x (Student(x) → training(x))"
+  },
+  {
+    "premise": "Some students have reasoning skills if any student has skills.",
+    "fol": "∀x (Student(x) ∧ skills(x) → ∃y (Student(y) ∧ reasoning_skills(y)))"
+  },
+  {
+    "premise": "All students have proficiency.",
+    "fol": "∀x (Student(x) → proficiency(x))"
+  },
+  {
+    "premise": "If a student has proficiency, then they have qualifications.",
+    "fol": "∀x (Student(x) ∧ proficiency(x) → qualifications(x))"
+  },
+  {
+    "premise": "If a student lacks qualifications, then they lack understanding.",
+    "fol": "∀x (Student(x) ∧ ¬qualifications(x) → ¬understanding(x))"
   },
   {
     "premise": "All students receive training.",
@@ -10652,76 +11044,12 @@
     "fol": "∀x (P(x) → T(x))"
   },
   {
-    "premise": "If a student attends training, then they pass the exam.",
-    "fol": "(AttendsTraining(x) → PassesExam(x))"
+    "premise": "All students attend training.",
+    "fol": "∀x (Student(x) → AttendsTraining(x))"
   },
   {
     "premise": "All students study regularly.",
-    "fol": "ForAll(x, StudiesRegularly(x))"
-  },
-  {
-    "premise": "There is at least one student who receives recognition.",
-    "fol": "Exists(x, ReceivesRecognition(x))"
-  },
-  {
-    "premise": "If a student does not study regularly, then they do not receive recognition.",
-    "fol": "(¬StudiesRegularly(x) → ¬ReceivesRecognition(x))"
-  },
-  {
-    "premise": "If a student does not study regularly, then they do not qualify for a scholarship.",
-    "fol": "(¬StudiesRegularly(x) → ¬QualifiesForScholarship(x))"
-  },
-  {
-    "premise": "There is at least one student who understands the material.",
-    "fol": "Exists(x, UnderstandsMaterial(x))"
-  },
-  {
-    "premise": "If a student does not attend training, then they do not understand the material.",
-    "fol": "(¬AttendsTraining(x) → ¬UnderstandsMaterial(x))"
-  },
-  {
-    "premise": "There is at least one student who passes the exam.",
-    "fol": "Exists(x, PassesExam(x))"
-  },
-  {
-    "premise": "All students understand the material.",
-    "fol": "ForAll(x, UnderstandsMaterial(x))"
-  },
-  {
-    "premise": "All students pass the exam.",
-    "fol": "ForAll(x, PassesExam(x))"
-  },
-  {
-    "premise": "All students attend training.",
-    "fol": "ForAll(x, AttendsTraining(x))"
-  },
-  {
-    "premise": "If a student qualifies for a scholarship, then they attend training.",
-    "fol": "(QualifiesForScholarship(x) → AttendsTraining(x))"
-  },
-  {
-    "premise": "If there is at least one student who passes the exam, then all students study regularly.",
-    "fol": "(Exists(x, PassesExam(x)) → ForAll(x, StudiesRegularly(x)))"
-  },
-  {
-    "premise": "If qualifying for a scholarship implies attending training, then all students study regularly.",
-    "fol": "((QualifiesForScholarship(x) → AttendsTraining(x)) → ForAll(x, StudiesRegularly(x)))"
-  },
-  {
-    "premise": "If a student does not understand the material, then they do not study regularly.",
-    "fol": "(¬UnderstandsMaterial(x) → ¬StudiesRegularly(x))"
-  },
-  {
-    "premise": "All students qualify for a scholarship.",
-    "fol": "ForAll(x, QualifiesForScholarship(x))"
-  },
-  {
-    "premise": "If a student does not attend training, then they do not qualify for a scholarship.",
-    "fol": "(¬AttendsTraining(x) → ¬QualifiesForScholarship(x))"
-  },
-  {
-    "premise": "If a student does not pass the exam, then they do not attend training.",
-    "fol": "(¬PassesExam(x) → ¬AttendsTraining(x))"
+    "fol": "∀x (Student(x) → StudiesRegularly(x))"
   },
   {
     "premise": "All students qualify for a scholarship.",
@@ -11164,6 +11492,118 @@
     "fol": "ForAll(x, StudiesRegularly(x))"
   },
   {
+    "premise": "There is at least one student who passes the exam.",
+    "fol": "∃x PassesExam(x)"
+  },
+  {
+    "premise": "If a student does not qualify for a scholarship, then they do not study regularly.",
+    "fol": "∀x (¬QualifiesForScholarship(x) → ¬StudiesRegularly(x))"
+  },
+  {
+    "premise": "If a student understands the material, then they qualify for a scholarship.",
+    "fol": "∀x (UnderstandsMaterial(x) → QualifiesForScholarship(x))"
+  },
+  {
+    "premise": "If a student does not understand the material, then they do not receive a recommendation letter.",
+    "fol": "∀x (¬UnderstandsMaterial(x) → ¬ReceivesRecommendation(x))"
+  },
+  {
+    "premise": "If a student qualifies for a scholarship, then they attend tutoring sessions.",
+    "fol": "∀x (QualifiesForScholarship(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "If a student studies regularly, then they attend tutoring sessions.",
+    "fol": "∀x (StudiesRegularly(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "If a student understands the material, then they study regularly.",
+    "fol": "∀x (UnderstandsMaterial(x) → StudiesRegularly(x))"
+  },
+  {
+    "premise": "If a student passes the exam, then they study regularly.",
+    "fol": "∀x (PassesExam(x) → StudiesRegularly(x))"
+  },
+  {
+    "premise": "There is at least one student who qualifies for a scholarship.",
+    "fol": "∃x QualifiesForScholarship(x)"
+  },
+  {
+    "premise": "If a student does not receive a recommendation letter, then they do not qualify for a scholarship.",
+    "fol": "∀x (¬ReceivesRecommendation(x) → ¬QualifiesForScholarship(x))"
+  },
+  {
+    "premise": "If a student does not understand the material, then they do not receive a recommendation letter.",
+    "fol": "(¬UnderstandsMaterial(x) → ¬ReceivesRecommendation(x))"
+  },
+  {
+    "premise": "If a student attends tutoring sessions, then they receive a recommendation letter.",
+    "fol": "(AttendsTutoring(x) → ReceivesRecommendation(x))"
+  },
+  {
+    "premise": "There is at least one student who understands the material.",
+    "fol": "Exists(x, UnderstandsMaterial(x))"
+  },
+  {
+    "premise": "All students pass the exam.",
+    "fol": "ForAll(x, PassesExam(x))"
+  },
+  {
+    "premise": "If a student does not attend tutoring sessions, then they do not qualify for a scholarship.",
+    "fol": "(¬AttendsTutoring(x) → ¬QualifiesForScholarship(x))"
+  },
+  {
+    "premise": "If a student studies regularly, then they attend tutoring sessions.",
+    "fol": "(StudiesRegularly(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "If a student qualifies for a scholarship, then they attend tutoring sessions.",
+    "fol": "(QualifiesForScholarship(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "If a student passes the exam, then they understand the material.",
+    "fol": "(PassesExam(x) → UnderstandsMaterial(x))"
+  },
+  {
+    "premise": "If a student does not pass the exam, then they do not attend tutoring sessions.",
+    "fol": "(¬PassesExam(x) → ¬AttendsTutoring(x))"
+  },
+  {
+    "premise": "If a student understands the material, then they attend tutoring sessions.",
+    "fol": "(UnderstandsMaterial(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "If a student does not pass the exam, then they do not study regularly.",
+    "fol": "(¬PassesExam(x) → ¬StudiesRegularly(x))"
+  },
+  {
+    "premise": "If a student does not study regularly, then they do not qualify for a scholarship.",
+    "fol": "(¬StudiesRegularly(x) → ¬QualifiesForScholarship(x))"
+  },
+  {
+    "premise": "If it holds that if a student does not understand the material then they do not receive a recommendation letter, then there is at least one student who understands the material.",
+    "fol": "((¬UnderstandsMaterial(x) → ¬ReceivesRecommendation(x)) → Exists(x, UnderstandsMaterial(x)))"
+  },
+  {
+    "premise": "If it holds that if a student understands the material then they attend tutoring sessions, then if a student does not pass the exam, they do not attend tutoring sessions.",
+    "fol": "((UnderstandsMaterial(x) → AttendsTutoring(x)) → (¬PassesExam(x) → ¬AttendsTutoring(x)))"
+  },
+  {
+    "premise": "If a student receives a recommendation letter, then they attend tutoring sessions.",
+    "fol": "(ReceivesRecommendation(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "If a student receives a recommendation letter, then they study regularly.",
+    "fol": "(ReceivesRecommendation(x) → StudiesRegularly(x))"
+  },
+  {
+    "premise": "All students receive a recommendation letter.",
+    "fol": "ForAll(x, ReceivesRecommendation(x))"
+  },
+  {
+    "premise": "If a student studies regularly, then they receive a recommendation letter.",
+    "fol": "(StudiesRegularly(x) → ReceivesRecommendation(x))"
+  },
+  {
     "premise": "There exists at least one student who is prepared.",
     "fol": "Exists(x, Prepared(x))"
   },
@@ -11240,6 +11680,26 @@
     "fol": "(AsksQuestions(x) → StudiesRegularly(x))"
   },
   {
+    "premise": "If a student attends tutoring sessions, then they qualify for a scholarship.",
+    "fol": "∀x (Student(x) ∧ AttendsTutoring(x) → QualifiesForScholarship(x))"
+  },
+  {
+    "premise": "If a student receives a recommendation letter, then they qualify for a scholarship.",
+    "fol": "∀x (Student(x) ∧ ReceivesRecommendation(x) → QualifiesForScholarship(x))"
+  },
+  {
+    "premise": "If a student understands the material, then they attend tutoring sessions.",
+    "fol": "∀x (Student(x) ∧ UnderstandsMaterial(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "If a student passes the exam, then they understand the material.",
+    "fol": "∀x (Student(x) ∧ PassesExam(x) → UnderstandsMaterial(x))"
+  },
+  {
+    "premise": "If a student does not qualify for a scholarship, then they do not receive a recommendation letter.",
+    "fol": "∀x (Student(x) ∧ ¬QualifiesForScholarship(x) → ¬ReceivesRecommendation(x))"
+  },
+  {
     "premise": "If a student studies regularly, then they pass the exam.",
     "fol": "(StudiesRegularly(x) → PassesExam(x))"
   },
@@ -11314,6 +11774,26 @@
   {
     "premise": "If a student does not receive a recommendation letter, then they do not pass the exam.",
     "fol": "(¬ReceivesRecommendation(x) → ¬PassesExam(x))"
+  },
+  {
+    "premise": "If a student studies regularly, then they pass the exam.",
+    "fol": "∀x (Student(x) ∧ StudiesRegularly(x) → PassesExam(x))"
+  },
+  {
+    "premise": "If a student receives an award, then they study regularly.",
+    "fol": "∀x (Student(x) ∧ ReceivesAward(x) → StudiesRegularly(x))"
+  },
+  {
+    "premise": "If a student does not study regularly, then they do not qualify for a scholarship.",
+    "fol": "∀x (Student(x) ∧ ¬StudiesRegularly(x) → ¬QualifiesForScholarship(x))"
+  },
+  {
+    "premise": "If a student does not attend tutoring sessions, then they do not qualify for a scholarship.",
+    "fol": "∀x (Student(x) ∧ ¬AttendsTutoring(x) → ¬QualifiesForScholarship(x))"
+  },
+  {
+    "premise": "There is at least one student who qualifies for a scholarship.",
+    "fol": "∃x (Student(x) ∧ QualifiesForScholarship(x))"
   },
   {
     "premise": "If a student invests time in project-based learning, that student gains a broader understanding of the subject.",
@@ -12516,6 +12996,66 @@
     "fol": "ForAll(x, Institution(x) ∧ PromotesInclusiveEducation(x) → EqualLearningOpportunities(x))"
   },
   {
+    "premise": "If students engage in problem-based learning, they develop stronger analytical skills.",
+    "fol": "ForAll(x, Student(x) ∧ ProblemBasedLearning(x) → StrongerAnalyticalSkills(x))"
+  },
+  {
+    "premise": "If students have access to diverse learning materials, they gain a broader perspective on subjects.",
+    "fol": "ForAll(x, Student(x) ∧ DiverseLearningMaterials(x) → BroaderSubjectPerspective(x))"
+  },
+  {
+    "premise": "If students participate in peer tutoring, both tutors and learners reinforce their knowledge.",
+    "fol": "ForAll(x, Student(x) ∧ PeerTutoring(x) → ReinforcedKnowledge(x))"
+  },
+  {
+    "premise": "If students experience project-based assessments, they apply theoretical knowledge to practical situations.",
+    "fol": "ForAll(x, Student(x) ∧ ProjectBasedAssessments(x) → PracticalApplication(x))"
+  },
+  {
+    "premise": "If students lack motivation, their academic performance may decline.",
+    "fol": "ForAll(x, Student(x) ∧ LackMotivation(x) → DeclinedAcademicPerformance(x))"
+  },
+  {
+    "premise": "If students engage in digital learning platforms, they enhance their technological proficiency.",
+    "fol": "ForAll(x, Student(x) ∧ DigitalLearningPlatforms(x) → EnhancedTechProficiency(x))"
+  },
+  {
+    "premise": "If students practice metacognitive strategies, they become more effective self-learners.",
+    "fol": "ForAll(x, Student(x) ∧ MetacognitiveStrategies(x) → EffectiveSelfLearner(x))"
+  },
+  {
+    "premise": "If students receive clear learning objectives, they can set better academic goals.",
+    "fol": "ForAll(x, Student(x) ∧ ClearLearningObjectives(x) → BetterAcademicGoals(x))"
+  },
+  {
+    "premise": "If students engage in physical activities during school hours, they improve their cognitive function.",
+    "fol": "ForAll(x, Student(x) ∧ SchoolPhysicalActivity(x) → ImprovedCognitiveFunction(x))"
+  },
+  {
+    "premise": "If schools implement competency-based education, students progress based on mastery rather than time spent.",
+    "fol": "ForAll(x, Institution(x) ∧ CompetencyBasedEducation(x) → MasteryBasedProgression(x))"
+  },
+  {
+    "premise": "Every student attends tutoring.",
+    "fol": "∀x (Student(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "If a student completes assignments on time, then they understand the course material.",
+    "fol": "∀x (Student(x) ∧ CompletesAssignmentsOnTime(x) → UnderstandsMaterial(x))"
+  },
+  {
+    "premise": "If a student understands the material, then they are prepared for the final exam.",
+    "fol": "∀x (Student(x) ∧ UnderstandsMaterial(x) → PreparedForExam(x))"
+  },
+  {
+    "premise": "If a student completes assignments on time, then they submit assignments on time.",
+    "fol": "∀x (Student(x) ∧ CompletesAssignmentsOnTime(x) → SubmitsAssignmentsOnTime(x))"
+  },
+  {
+    "premise": "If a student completes assignments on time, then they are prepared for the final exam.",
+    "fol": "∀x (Student(x) ∧ CompletesAssignmentsOnTime(x) → PreparedForExam(x))"
+  },
+  {
     "premise": "If a student installs the software from the university’s repository, then the software is functional.",
     "fol": "(InstallsSoftware(x) → FunctionalSoftware(x))"
   },
@@ -12550,6 +13090,82 @@
   {
     "premise": "If a student does not update the software, then they do not have access to the latest features.",
     "fol": "(¬UpdatesSoftware(x) → ¬HasAccessToLatestFeatures(x))"
+  },
+  {
+    "premise": "Every student attends tutoring.",
+    "fol": "∀x (Student(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "If a student completes assignments on time, then they understand the course material.",
+    "fol": "∀x (Student(x) ∧ CompletesAssignmentsOnTime(x) → UnderstandsMaterial(x))"
+  },
+  {
+    "premise": "If a student understands the material, then they are prepared for the final exam.",
+    "fol": "∀x (Student(x) ∧ UnderstandsMaterial(x) → PreparedForExam(x))"
+  },
+  {
+    "premise": "If a student completes assignments on time, then they submit assignments on time.",
+    "fol": "∀x (Student(x) ∧ CompletesAssignmentsOnTime(x) → SubmitsAssignmentsOnTime(x))"
+  },
+  {
+    "premise": "If a student completes assignments on time, then they are prepared for the final exam.",
+    "fol": "∀x (Student(x) ∧ CompletesAssignmentsOnTime(x) → PreparedForExam(x))"
+  },
+  {
+    "premise": "There exists at least one student who is enrolled in the course.",
+    "fol": "Exists(x, Enrolled(x))"
+  },
+  {
+    "premise": "If a student studies consistently, then the student understands the subject.",
+    "fol": "ForAll(x, (StudiesConsistently(x) → UnderstandsSubject(x)))"
+  },
+  {
+    "premise": "If a student does not study consistently, then the student does not perform well in exams.",
+    "fol": "ForAll(x, (¬StudiesConsistently(x) → ¬PerformsWell(x)))"
+  },
+  {
+    "premise": "All students are enrolled in the course.",
+    "fol": "ForAll(x, Enrolled(x))"
+  },
+  {
+    "premise": "If a student does not attend lectures, then the student does not complete assignments.",
+    "fol": "ForAll(x, (¬AttendsLectures(x) → ¬CompletesAssignments(x)))"
+  },
+  {
+    "premise": "If studying consistently leads to understanding the subject, then all students are enrolled in the course.",
+    "fol": "((ForAll(x, (StudiesConsistently(x) → UnderstandsSubject(x))) → ForAll(x, Enrolled(x)))"
+  },
+  {
+    "premise": "All students complete their assignments.",
+    "fol": "ForAll(x, CompletesAssignments(x))"
+  },
+  {
+    "premise": "If a student does not perform well in exams, then the student did not study consistently.",
+    "fol": "ForAll(x, (¬PerformsWell(x) → ¬StudiesConsistently(x)))"
+  },
+  {
+    "premise": "If a student is not enrolled in the course, then the student does not complete assignments.",
+    "fol": "ForAll(x, (¬Enrolled(x) → ¬CompletesAssignments(x)))"
+  },
+  {
+    "premise": "Every student attends tutoring.",
+    "fol": "∀x (Student(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "If a student completes assignments on time, then they understand the course material.",
+    "fol": "∀x (Student(x) ∧ CompletesAssignmentsOnTime(x) → UnderstandsMaterial(x))"
+  },
+  {
+    "premise": "If a student understands the material, then they are prepared for the final exam.",
+    "fol": "∀x (Student(x) ∧ UnderstandsMaterial(x) → PreparedForExam(x))"
+  },
+  {
+    "premise": "If a student completes assignments on time, then they submit assignments on time.",
+    "fol": "∀x (Student(x) ∧ CompletesAssignmentsOnTime(x) → SubmitsAssignmentsOnTime(x))"
+  },
+  {
+    "premise": "If a student completes assignments on time, then they are prepared for the final exam.",
+    "fol": "∀x (Student(x) ∧ CompletesAssignmentsOnTime(x) → PreparedForExam(x))"
   },
   {
     "premise": "All books in the library are cataloged.",
@@ -12594,6 +13210,22 @@
   {
     "premise": "If a book is not cataloged, then it is not in the reference section.",
     "fol": "ForAll(x, (¬Cataloged(x) → ¬ReferenceSection(x)))"
+  },
+  {
+    "premise": "All members provide support to their teammates.",
+    "fol": "∀x (TeamMember(x) → SupportsTeammates(x))"
+  },
+  {
+    "premise": "If a member supports their teammates, they take initiative.",
+    "fol": "∀x (TeamMember(x) ∧ SupportsTeammates(x) → TakesInitiative(x))"
+  },
+  {
+    "premise": "If a team member takes initiative, they collaborate.",
+    "fol": "∀x (TeamMember(x) ∧ TakesInitiative(x) → Collaborates(x))"
+  },
+  {
+    "premise": "If a team member does not communicate, they do not receive feedback.",
+    "fol": "∀x (TeamMember(x) ∧ ¬Communicates(x) → ¬ReceivesFeedback(x))"
   },
   {
     "premise": "If a student does not practice Calculus exercises, they will not understand the concepts.",
@@ -12660,6 +13292,26 @@
     "fol": "ForAll(x, (¬PerformWell(x) → ¬MasterCalculus(x)))"
   },
   {
+    "premise": "If a student attends tutoring, then that student improves exam scores.",
+    "fol": "∀x (Student(x) ∧ AttendsTutoring(x) → ImprovesExamScores(x))"
+  },
+  {
+    "premise": "If a student improves exam scores, then that student has an opportunity to succeed.",
+    "fol": "∀x (Student(x) ∧ ImprovesExamScores(x) → HasOpportunityToSucceed(x))"
+  },
+  {
+    "premise": "If a student participates in group discussions, then that student attends tutoring.",
+    "fol": "∀x (Student(x) ∧ ParticipatesGroupDiscussion(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "There exists at least one student who participates in group discussions.",
+    "fol": "∃x (Student(x) ∧ ParticipatesGroupDiscussion(x))"
+  },
+  {
+    "premise": "If a student does not submit assignments on time, then that student does not attend tutoring.",
+    "fol": "∀x (Student(x) ∧ ¬SubmitsOnTime(x) → ¬AttendsTutoring(x))"
+  },
+  {
     "premise": "There exists at least one student who submits assignments.",
     "fol": "Exists(x, SubmitsAssignments(x))"
   },
@@ -12696,6 +13348,26 @@
     "fol": "ForAll(x, (ParticipatesInDiscussions(x) → AttendsLectures(x)))"
   },
   {
+    "premise": "If a student attends tutoring, then that student improves exam scores.",
+    "fol": "∀x (Student(x) ∧ AttendsTutoring(x) → ImprovesExamScores(x))"
+  },
+  {
+    "premise": "If a student improves exam scores, then that student has an opportunity to succeed.",
+    "fol": "∀x (Student(x) ∧ ImprovesExamScores(x) → HasOpportunityToSucceed(x))"
+  },
+  {
+    "premise": "If a student participates in group discussions, then that student attends tutoring.",
+    "fol": "∀x (Student(x) ∧ ParticipatesGroupDiscussion(x) → AttendsTutoring(x))"
+  },
+  {
+    "premise": "There exists at least one student who participates in group discussions.",
+    "fol": "∃x (Student(x) ∧ ParticipatesGroupDiscussion(x))"
+  },
+  {
+    "premise": "If a student does not submit assignments on time, then that student does not attend tutoring.",
+    "fol": "∀x (Student(x) ∧ ¬SubmitsOnTime(x) → ¬AttendsTutoring(x))"
+  },
+  {
     "premise": "There exists at least one student who asks questions during class.",
     "fol": "Exists(x, AsksQuestionsDuringClass(x))"
   },
@@ -12730,6 +13402,14 @@
   {
     "premise": "If a student completes the project, then they are prepared for the final exam.",
     "fol": "ForAll(x, (CompletesProject(x) → PreparedForFinalExam(x)))"
+  },
+  {
+    "premise": "If a student does not use online documents from the library, then that student does not gain more knowledge.",
+    "fol": "∀x (Student(x) ∧ ¬UsesOnlineDocuments(x) → ¬GainsKnowledge(x))"
+  },
+  {
+    "premise": "There exists a student who gains more knowledge.",
+    "fol": "∃x (Student(x) ∧ GainsKnowledge(x))"
   },
   {
     "premise": "If a Python script does not have error handling, then it does not handle exceptions.",
@@ -12806,6 +13486,82 @@
   {
     "premise": "If a Python program produces reliable outputs, then it is optimized.",
     "fol": "ForAll(x, (ReliableOutputs(x) → Optimized(x)))"
+  },
+  {
+    "premise": "If a dataset has missing values, then it affects model convergence.",
+    "fol": "∀x (Dataset(x) ∧ MissingValues(x) → AffectsConvergence(x))"
+  },
+  {
+    "premise": "If a dataset requires preprocessing, then missing values affect model convergence.",
+    "fol": "∀x (Dataset(x) ∧ PreprocessingRequired(x) → (MissingValues(x) → AffectsConvergence(x)))"
+  },
+  {
+    "premise": "There exists at least one dataset with missing values.",
+    "fol": "∃x (Dataset(x) ∧ MissingValues(x))"
+  },
+  {
+    "premise": "If a function is differentiable, then it is continuous.",
+    "fol": "ForAll(x, (Differentiable(x) → Continuous(x)))"
+  },
+  {
+    "premise": "There exists at least one function that is integrable.",
+    "fol": "Exists(x, Integrable(x))"
+  },
+  {
+    "premise": "There exists at least one function that is differentiable.",
+    "fol": "Exists(x, Differentiable(x))"
+  },
+  {
+    "premise": "If a function is twice differentiable, then it is differentiable.",
+    "fol": "ForAll(x, (TwiceDifferentiable(x) → Differentiable(x)))"
+  },
+  {
+    "premise": "All continuous functions satisfy the Intermediate Value Theorem.",
+    "fol": "ForAll(x, (Continuous(x) → IVT(x)))"
+  },
+  {
+    "premise": "If a function is differentiable, then it is integrable.",
+    "fol": "ForAll(x, (Differentiable(x) → Integrable(x)))"
+  },
+  {
+    "premise": "If a function is not continuous, then it is not differentiable.",
+    "fol": "ForAll(x, (¬Continuous(x) → ¬Differentiable(x)))"
+  },
+  {
+    "premise": "All differentiable functions satisfy the Mean Value Theorem.",
+    "fol": "ForAll(x, (Differentiable(x) → MVT(x)))"
+  },
+  {
+    "premise": "All polynomials are differentiable.",
+    "fol": "ForAll(x, (Polynomial(x) → Differentiable(x)))"
+  },
+  {
+    "premise": "There exists at least one polynomial function.",
+    "fol": "Exists(x, Polynomial(x))"
+  },
+  {
+    "premise": "There exists at least one continuous function.",
+    "fol": "Exists(x, Continuous(x))"
+  },
+  {
+    "premise": "If a function is not differentiable, then it is not a polynomial.",
+    "fol": "ForAll(x, (¬Differentiable(x) → ¬Polynomial(x)))"
+  },
+  {
+    "premise": "All integrable functions satisfy the Fundamental Theorem of Calculus.",
+    "fol": "ForAll(x, (Integrable(x) → FTC(x)))"
+  },
+  {
+    "premise": "If all differentiable functions satisfy the Mean Value Theorem, then there exists at least one continuous function.",
+    "fol": "((ForAll(x, (Differentiable(x) → MVT(x))) → Exists(x, Continuous(x))))"
+  },
+  {
+    "premise": "If a student does not complete a specific task, then that student is not a university student.",
+    "fol": "∀x (Student(x) ∧ ¬CompletesTask(x) → ¬UniversityStudent(x))"
+  },
+  {
+    "premise": "There exists a student attending a specific course.",
+    "fol": "∃x (Student(x) ∧ AttendsCourse(x))"
   },
   {
     "premise": "All students are attending the course",
@@ -13500,6 +14256,22 @@
     "fol": "ForAll(x, (EngagesInLearningProcess(x) → SucceedsInAssessments(x)))"
   },
   {
+    "premise": "There exists at least one student who excels in assessments.",
+    "fol": "∃x (Student(x) ∧ ExcelsInAssessments(x))"
+  },
+  {
+    "premise": "If a student cannot apply knowledge, they will struggle with learning new concepts.",
+    "fol": "∀x (Student(x) ∧ ¬AppliesKnowledge(x) → ¬UnderstandsNewConcepts(x))"
+  },
+  {
+    "premise": "If a student is not meeting the academic standards, they will not progress in their studies.",
+    "fol": "∀x (Student(x) ∧ ¬MeetsStandards(x) → ¬ProgressesStudies(x))"
+  },
+  {
+    "premise": "All students are expected to adhere to the academic code of conduct outlined by the school law.",
+    "fol": "∀x (Student(x) → AdheresConduct(x))"
+  },
+  {
     "premise": "There exists at least one student who has demonstrated mastery of the subject.",
     "fol": "∃x P(x)"
   },
@@ -13620,6 +14392,30 @@
     "fol": "∀x (R(x) → S(x))"
   },
   {
+    "premise": "If a student fails the final project, they will not pass the course.",
+    "fol": "∀x (Student(x) ∧ FailsFinalProject(x) → ¬PassCourse(x))"
+  },
+  {
+    "premise": "If a student does not attend at least 80% of the lectures, they will not be eligible for the final project.",
+    "fol": "∀x (Student(x) ∧ ¬AttendsLectures80Percent(x) → ¬EligibleForFinalProject(x))"
+  },
+  {
+    "premise": "If a student fails the midterm exam, they will not be eligible for extra credit.",
+    "fol": "∀x (Student(x) ∧ FailsMidterm(x) → ¬EligibleForExtraCredit(x))"
+  },
+  {
+    "premise": "If a student completes all the required assignments on time and attends at least 80% of the lectures, they will be eligible for the final project.",
+    "fol": "∀x (Student(x) ∧ SubmitsAllAssignmentsOnTime(x) ∧ AttendsLectures80Percent(x) → EligibleForFinalProject(x))"
+  },
+  {
+    "premise": "If a student fails the final project, they will not pass the course and will lose eligibility for scholarships.",
+    "fol": "∀x (Student(x) ∧ FailsFinalProject(x) → (¬PassCourse(x) ∧ ¬EligibleForScholarship(x)))"
+  },
+  {
+    "premise": "If a student fails the midterm exam, they will not be eligible for extra credit.",
+    "fol": "∀x (Student(x) ∧ FailsMidterm(x) → ¬EligibleForExtraCredit(x))"
+  },
+  {
     "premise": "If a student successfully completes a prerequisite course, they are eligible to enroll in the next level course.",
     "fol": "∀x (U(x) → S(x))"
   },
@@ -13680,6 +14476,18 @@
     "fol": "∀x (R(x) → S(x))"
   },
   {
+    "premise": "If an event is advertised to the university community, it informs participants.",
+    "fol": "∀x (Event(x) ∧ AdvertisesEvent(x) → InformsParticipants(x))"
+  },
+  {
+    "premise": "If an event has scheduling conflicts, it cannot maximize attendance.",
+    "fol": "∀x (Event(x) ∧ ¬NoConflicts(x) → ¬MaximizesAttendance(x))"
+  },
+  {
+    "premise": "If an event informs participants and has no scheduling conflicts, it attracts participants.",
+    "fol": "∀x (Event(x) ∧ InformsParticipants(x) ∧ NoConflicts(x) → AttractsParticipants(x))"
+  },
+  {
     "premise": "Every student in the course is participating in the training session.",
     "fol": "∀x T(x)"
   },
@@ -13730,6 +14538,14 @@
   {
     "premise": "If a student has attended the seminar, they will be able to pass the course with certification.",
     "fol": "∀x (R(x) → (U(x) ∧ Q(x)))"
+  },
+  {
+    "premise": "If a student uses efficient sorting algorithms, they achieve better performance.",
+    "fol": "∀x (Student(x) ∧ UsesEfficientSorting(x) → BetterPerformance(x))"
+  },
+  {
+    "premise": "If a student understands recursion, they can break problems into smaller parts.",
+    "fol": "∀x (Student(x) ∧ UnderstandsRecursion(x) → BreaksProblemIntoSmallerParts(x))"
   },
   {
     "premise": "Every AI model requires training data to function properly.",
@@ -13790,6 +14606,14 @@
   {
     "premise": "If an AI model is not provided with sufficient training, it will not learn efficiently.",
     "fol": "∀x (¬S(x) → ¬E(x))"
+  },
+  {
+    "premise": "If a timetable is optimized, it allocates resources like classrooms and instructors efficiently.",
+    "fol": "∀x (Timetable(x) ∧ OptimizedTimetable(x) → AllocatesResourcesEfficiently(x))"
+  },
+  {
+    "premise": "If a student has a balanced schedule, they have enough breaks and are not overloaded.",
+    "fol": "∀x (Student(x) ∧ BalancedSchedule(x) → (HasAdequateBreaks(x) ∧ ¬OverloadedSchedule(x)))"
   },
   {
     "premise": "To build a website, a strong understanding of web development technologies like HTML, CSS, and JavaScript is essential.",
@@ -15652,6 +16476,34 @@
     "fol": "O(An)"
   },
   {
+    "premise": "All students attend lectures.",
+    "fol": "∀x (Student(x) → AttendsLectures(x))"
+  },
+  {
+    "premise": "If a student attends lectures, they participate in group discussions.",
+    "fol": "∀x (Student(x) ∧ AttendsLectures(x) → ParticipatesInGroupDiscussions(x))"
+  },
+  {
+    "premise": "All students attend lectures.",
+    "fol": "∀x (Student(x) → AttendsLectures(x))"
+  },
+  {
+    "premise": "If a student attends lectures, they participate in group discussions.",
+    "fol": "∀x (Student(x) ∧ AttendsLectures(x) → ParticipatesInGroupDiscussions(x))"
+  },
+  {
+    "premise": "If a student wants to understand the lesson, they pay attention to the lecture.",
+    "fol": "∀x (Student(x) ∧ WantsToUnderstand(x) → PaysAttention(x))"
+  },
+  {
+    "premise": "If a student wants to understand the lesson, they do extra exercises at home.",
+    "fol": "∀x (Student(x) ∧ WantsToUnderstand(x) → DoesExtraExercises(x))"
+  },
+  {
+    "premise": "If some student does extra exercises at home, then some student pays attention to the lecture.",
+    "fol": "∃x (Student(x) ∧ DoesExtraExercises(x)) → ∃x (Student(x) ∧ PaysAttention(x))"
+  },
+  {
     "premise": "If a student participates in a class, they will register for it.",
     "fol": "∀x (P(x) → R(x))"
   },
@@ -15686,6 +16538,114 @@
   {
     "premise": "Every student is required to attend the class in the course they are enrolled in.",
     "fol": "∀x (E(x) → T(x))"
+  },
+  {
+    "premise": "If a teacher uses various instructional methods, they address diverse student learning needs.",
+    "fol": "∀x (Teacher(x) ∧ UsesInstructionalMethods(x) → AddressesDiverseLearningNeeds(x))"
+  },
+  {
+    "premise": "If a teacher manages their classroom well, they promote a respectful learning environment.",
+    "fol": "∀x (Teacher(x) ∧ ManagesClassroom(x) → PromotesLearningEnvironment(x))"
+  },
+  {
+    "premise": "If a teacher uses instructional methods and manages their classroom, they understand pedagogical principles.",
+    "fol": "∀x (Teacher(x) ∧ UsesInstructionalMethods(x) ∧ ManagesClassroom(x) → UnderstandsPedagogicalPrinciples(x))"
+  },
+  {
+    "premise": "There exists at least one student who participated in the online training session.",
+    "fol": "∃x A(x)"
+  },
+  {
+    "premise": "There exists at least one student who signed the academic integrity agreement.",
+    "fol": "∃x S(x)"
+  },
+  {
+    "premise": "If a student did not submit the final report, then they did not receive course recognition.",
+    "fol": "∀x (¬F(x) → ¬R(x))"
+  },
+  {
+    "premise": "If a student attended the training session, then they submitted the final report.",
+    "fol": "∀x (A(x) → F(x))"
+  },
+  {
+    "premise": "If a student did not attend the training session, then they did not submit the final report.",
+    "fol": "∀x (¬A(x) → ¬F(x))"
+  },
+  {
+    "premise": "If students who did not attend the training session also failed to submit the final report, then they did not receive course recognition.",
+    "fol": "∀x ((¬A(x) ∧ ¬F(x)) → ¬R(x))"
+  },
+  {
+    "premise": "If not attending the training session leads to not submitting the final report, then some students must have signed the academic integrity agreement.",
+    "fol": "∀x (¬A(x) → ¬F(x)) → ∃x S(x)"
+  },
+  {
+    "premise": "If a student did not attend the training session, then they did not submit the final project either.",
+    "fol": "∀x (¬A(x) → ¬P(x))"
+  },
+  {
+    "premise": "If a student did not sign the academic integrity agreement, then they did not receive course recognition.",
+    "fol": "∀x (¬S(x) → ¬R(x))"
+  },
+  {
+    "premise": "If a student hasn’t submitted their final project, they don’t meet the Research Skills requirement.",
+    "fol": "∀x (Student(x) ∧ ¬SubmittedFinalProject(x) → ¬MeetsResearchSkills(x))"
+  },
+  {
+    "premise": "If a student meets the Research Skills requirement, they’ve presented in a research seminar.",
+    "fol": "∀x (Student(x) ∧ MeetsResearchSkills(x) → PresentedInSeminar(x))"
+  },
+  {
+    "premise": "There exists at least one student who has passed the prerequisite course in programming.",
+    "fol": "∃x P(x)"
+  },
+  {
+    "premise": "If a student does not meet the minimum grade requirement, they are not allowed to proceed to advanced courses.",
+    "fol": "∀x (¬G(x) → ¬A(x))"
+  },
+  {
+    "premise": "All students are required to complete the foundational courses before proceeding to specialized courses.",
+    "fol": "∀x (S(x) → F(x))"
+  },
+  {
+    "premise": "If a student has not passed the core course, they cannot proceed with the elective courses.",
+    "fol": "∀x (¬C(x) → ¬E(x))"
+  },
+  {
+    "premise": "If a student has not completed the prerequisite course, they are not allowed to enroll in any advanced courses.",
+    "fol": "∀x (¬Q(x) → ¬A(x))"
+  },
+  {
+    "premise": "If a student has passed the prerequisite course, they are allowed to proceed to specialized courses.",
+    "fol": "∀x (P(x) → S(x))"
+  },
+  {
+    "premise": "If a student has completed the foundational courses, then they must have met the prerequisites for elective courses.",
+    "fol": "∀x (F(x) → E(x))"
+  },
+  {
+    "premise": "If a student has failed to meet the required standards, they cannot participate in the final project preparation.",
+    "fol": "∀x (¬R(x) → ¬J(x))"
+  },
+  {
+    "premise": "There exists at least one student who is eligible to participate in the final project preparation.",
+    "fol": "∃x J(x)"
+  },
+  {
+    "premise": "If a student has passed the prerequisite course, then they are eligible to enroll in the next course.",
+    "fol": "∀x (PassedPrerequisite(x) → EligibleToEnroll(x))"
+  },
+  {
+    "premise": "There exists at least one student who is eligible to enroll in the next course.",
+    "fol": "∃x EligibleToEnroll(x)"
+  },
+  {
+    "premise": "All students must complete the required introductory courses.",
+    "fol": "∀x CompletedIntroCourses(x)"
+  },
+  {
+    "premise": "A student is eligible to enroll in the next course only if they have passed the prerequisite course.",
+    "fol": "∀x (EligibleToEnroll(x) → PassedPrerequisite(x))"
   },
   {
     "premise": "For courses with lab components, a student is allowed to take the exam if their lab score is at least 4.0 out of 10 and all their component scores are greater than 0.",
@@ -16676,6 +17636,62 @@
     "fol": "ForAll(x, CompletedPrerequisites(x) → EnrolledWaitlistCourse(x))"
   },
   {
+    "premise": "All students are allowed to enroll in at least one course.",
+    "fol": "ForAll(x, CanEnroll(x))"
+  },
+  {
+    "premise": "All students enrolled in Calculus I.",
+    "fol": "ForAll(x, EnrolledCalculusI(x))"
+  },
+  {
+    "premise": "If a student registered for Advanced Physics, then they must have passed Classical Mechanics.",
+    "fol": "ForAll(x, RegisteredAdvPhysics(x) → PassedClassicalMech(x))"
+  },
+  {
+    "premise": "If a student did not register for Advanced Physics, then they are not allowed to enroll in any course.",
+    "fol": "ForAll(x, ¬RegisteredAdvPhysics(x) → ¬CanEnroll(x))"
+  },
+  {
+    "premise": "All students passed the prerequisites.",
+    "fol": "ForAll(x, PassedPrerequisites(x))"
+  },
+  {
+    "premise": "If a student passed Classical Mechanics, then they are allowed to take Data Structures.",
+    "fol": "ForAll(x, PassedClassicalMech(x) → CanTakeDataStructures(x))"
+  },
+  {
+    "premise": "If a student is not allowed to enroll, then they cannot take Data Structures.",
+    "fol": "ForAll(x, ¬CanEnroll(x) → ¬EnrolledDataStructures(x))"
+  },
+  {
+    "premise": "There exists at least one student registered for Advanced Physics.",
+    "fol": "Exists(x, RegisteredAdvPhysics(x))"
+  },
+  {
+    "premise": "All students enrolled in Data Structures.",
+    "fol": "ForAll(x, EnrolledDataStructures(x))"
+  },
+  {
+    "premise": "All students passed Classical Mechanics.",
+    "fol": "ForAll(x, PassedClassicalMech(x))"
+  },
+  {
+    "premise": "If a student registered for Advanced Physics, then they are allowed to enroll in courses.",
+    "fol": "ForAll(x, RegisteredAdvPhysics(x) → CanEnroll(x))"
+  },
+  {
+    "premise": "If a device has a motion sensor, then it is compatible with smart home apps.",
+    "fol": "∀x (HasMotionSensor(x) → CompatibleWithApps(x))"
+  },
+  {
+    "premise": "If a device is compatible with smart home apps, then it is energy efficient.",
+    "fol": "∀x (CompatibleWithApps(x) → EnergyEfficient(x))"
+  },
+  {
+    "premise": "If a device does not have a motion sensor, then it is not compatible with smart home apps.",
+    "fol": "∀x (¬HasMotionSensor(x) → ¬CompatibleWithApps(x))"
+  },
+  {
     "premise": "Every book in the library is available.",
     "fol": "∀x A(x)"
   },
@@ -16701,7 +17717,7 @@
   },
   {
     "premise": "If a book is available, then it is in good condition.",
-    "fol": "∀ x (A(x) → G(x))"
+    "fol": "∀x (A(x) → G(x))"
   },
   {
     "premise": "Every book is in good condition.",
@@ -16772,7 +17788,7 @@
     "fol": "(∀x (F(x) → W(x)) → ∀x (¬A(x) → ¬W(x))) → ∀x H(x)"
   },
   {
-    "premise": "If having a good condition implies a book is well-catalogued, then if frequently borrowed books are well-catalogued, an unavailable book is not well-catalogued.",
+    "premise": "If being in good condition implies a book is well-catalogued, then if frequently borrowed books are well-catalogued, an unavailable book is not well-catalogued.",
     "fol": "∀x (G(x) → W(x)) → (∀x (F(x) → W(x)) → ∀x (¬A(x) → ¬W(x)))"
   },
   {
@@ -16790,6 +17806,142 @@
   {
     "premise": "If a book is not in high demand, then it is not frequently borrowed.",
     "fol": "∀x (¬H(x) → ¬F(x))"
+  },
+  {
+    "premise": "If a bus route is energy efficient, then it is cost-effective.",
+    "fol": "∀x (EnergyEfficient(x) → CostEffective(x))"
+  },
+  {
+    "premise": "If a bus route is well-maintained, then it is cost-effective.",
+    "fol": "∀x (WellMaintained(x) → CostEffective(x))"
+  },
+  {
+    "premise": "There is at least one bus route that is well-maintained.",
+    "fol": "∃x WellMaintained(x)"
+  },
+  {
+    "premise": "There is at least one dish available today.",
+    "fol": "∃x A(x)"
+  },
+  {
+    "premise": "Every dish is well-prepared.",
+    "fol": "∀x W(x)"
+  },
+  {
+    "premise": "If a dish is a main course, then it is well-prepared.",
+    "fol": "∀x (M(x) → W(x))"
+  },
+  {
+    "premise": "If a dish is a main course, then it is spicy.",
+    "fol": "∀x (M(x) → S(x))"
+  },
+  {
+    "premise": "If a dish is available today, then it is popular.",
+    "fol": "∀x (A(x) → P(x))"
+  },
+  {
+    "premise": "There is at least one dish recommended by the chef.",
+    "fol": "∃x R(x)"
+  },
+  {
+    "premise": "There is at least one dish that is well-prepared.",
+    "fol": "∃x W(x)"
+  },
+  {
+    "premise": "If a dish is not spicy, then it is not recommended by the chef.",
+    "fol": "∀x (¬S(x) → ¬R(x))"
+  },
+  {
+    "premise": "If a dish is recommended by the chef, then it is well-prepared.",
+    "fol": "∀x (R(x) → W(x))"
+  },
+  {
+    "premise": "If a dish is not well-prepared, then it is not a main course.",
+    "fol": "∀x (¬W(x) → ¬M(x))"
+  },
+  {
+    "premise": "Every dish on the menu is a main course.",
+    "fol": "∀x M(x)"
+  },
+  {
+    "premise": "If a dish is not recommended by the chef, then it is not available today.",
+    "fol": "∀x (¬R(x) → ¬A(x))"
+  },
+  {
+    "premise": "Every dish is spicy.",
+    "fol": "∀x S(x)"
+  },
+  {
+    "premise": "There is at least one dish that is spicy.",
+    "fol": "∃x S(x)"
+  },
+  {
+    "premise": "Every dish is available today.",
+    "fol": "∀x A(x)"
+  },
+  {
+    "premise": "If every main course is spicy, then there is at least one dish recommended by the chef.",
+    "fol": "∀x (M(x) → S(x)) → ∃x R(x)"
+  },
+  {
+    "premise": "If every dish that is recommended is well-prepared, then if every main course is spicy, there is at least one dish recommended by the chef.",
+    "fol": "∀x (R(x) → W(x)) → (∀x (M(x) → S(x)) → ∃x R(x))"
+  },
+  {
+    "premise": "If every main course is spicy, then every dish is available today.",
+    "fol": "∀x (M(x) → S(x)) → ∀x A(x)"
+  },
+  {
+    "premise": "If the fact that every main course being spicy implies there is a recommended dish holds, then if a dish is available today, it is popular.",
+    "fol": "(∀x (M(x) → S(x)) → ∃x R(x)) → ∀x (A(x) → P(x))"
+  },
+  {
+    "premise": "If every main course being spicy implies there is a recommended dish, then there is at least one dish recommended by the chef.",
+    "fol": "(∀x (M(x) → S(x)) → ∃x R(x)) → ∃x R(x)"
+  },
+  {
+    "premise": "If a dish is spicy, then it is a main course.",
+    "fol": "∀x (S(x) → M(x))"
+  },
+  {
+    "premise": "If a dish is not recommended by the chef, then it is not a main course.",
+    "fol": "∀x (¬R(x) → ¬M(x))"
+  },
+  {
+    "premise": "If a dish is recommended by the chef, then it is popular.",
+    "fol": "∀x (R(x) → P(x))"
+  },
+  {
+    "premise": "If a dish is not a main course, then it is not popular.",
+    "fol": "∀x (¬M(x) → ¬P(x))"
+  },
+  {
+    "premise": "If a dish is not well-prepared, then it is not popular.",
+    "fol": "∀x (¬W(x) → ¬P(x))"
+  },
+  {
+    "premise": "If a dish is recommended by the chef, then it is available today.",
+    "fol": "∀x (R(x) → A(x))"
+  },
+  {
+    "premise": "If a dish is well-prepared, then it is recommended by the chef.",
+    "fol": "∀x (W(x) → R(x))"
+  },
+  {
+    "premise": "If a product is in stock, then it is of premium quality.",
+    "fol": "∀x (InStock(x) → PremiumQuality(x))"
+  },
+  {
+    "premise": "If a product is popular, then it is shipped today.",
+    "fol": "∀x (Popular(x) → ShippedToday(x))"
+  },
+  {
+    "premise": "There is at least one product that is popular.",
+    "fol": "∃x Popular(x)"
+  },
+  {
+    "premise": "If a product is in stock, then it is popular.",
+    "fol": "∀x (InStock(x) → Popular(x))"
   },
   {
     "premise": "At least one travel package is available in winter.",
@@ -16822,6 +17974,18 @@
   {
     "premise": "If a travel package is available in winter, then it is cost-effective.",
     "fol": "∀x (Package(x) ∧ Winter(x) → CostEffective(x))"
+  },
+  {
+    "premise": "If a smartphone is water resistant, then it supports 5G connectivity.",
+    "fol": "∀x (WaterResistant(x) → Supports5G(x))"
+  },
+  {
+    "premise": "If a smartphone is water resistant, then it is of premium quality.",
+    "fol": "∀x (WaterResistant(x) → PremiumQuality(x))"
+  },
+  {
+    "premise": "There is at least one smartphone that is water resistant.",
+    "fol": "∃x WaterResistant(x)"
   },
   {
     "premise": "There is at least one electric vehicle that is eco-friendly.",
@@ -17430,5 +18594,457 @@
   {
     "premise": "If a VR headset has a wide field of view, then it has motion tracking.",
     "fol": "∀x (WideFOV(x) → MotionTracking(x))"
+  },
+  {
+    "premise": "Nam has a GPA of 6.9 after completing 88 credits.",
+    "fol": "GPA(Nam) = 6.9 ∧ AccumulatedCredits(Nam) = 88"
+  },
+  {
+    "premise": "Nam retook 3 previously passed courses: C1 (4 credits, initial 5.2, retake1 7.0, retake2 3.5), C2 (3 credits, initial 6.0, retake1 6.8, retake2 6.0), C3 (5 credits, initial 7.5, retake1 5.0, retake2 4.0).",
+    "fol": "RetakeCourses(Nam) = [C1(4, 5.2, 7.0, 3.5), C2(3, 6.0, 6.8, 6.0), C3(5, 7.5, 5.0, 4.0)]"
+  },
+  {
+    "premise": "Nam repeated one failed course: C4 (3 credits, initial 3.0, repeat 6.5).",
+    "fol": "RepeatCourses(Nam) = [C4(3, 3.0, 6.5)]"
+  },
+  {
+    "premise": "Nam took two new courses: C5 (4 credits, score 8.0), C6 (2 credits, score 3.8).",
+    "fol": "NewCourses(Nam) = [C5(4, 8.0), C6(2, 3.8)]"
+  },
+  {
+    "premise": "A retake is re-registering a passed course (same course code) to improve the grade.",
+    "fol": "RetakeDefinition(c): PassedBefore(c) ∧ SameCourseCode(c) ∧ AttemptToImprove(c)"
+  },
+  {
+    "premise": "For GPA, use the highest score if ≥ 4.0; if all retake scores < 5.0, deduct 0.2 points per credit from the course’s grade points.",
+    "fol": "GPAUsesMaxScore(c): GPA(c) = If Max(Score(All)) ≥ 4.0 then Max else 0; If AllRetakes(c) < 5.0 then Subtract(0.2 × Credits(c))"
+  },
+  {
+    "premise": "Retaking a course does not add credits.",
+    "fol": "CreditsUnchangedWhenRetake(Nam, c)"
+  },
+  {
+    "premise": "Repeating a failed course means re-registering it.",
+    "fol": "RepeatDefinition(c): FailedBefore(c) ∧ ReRegister(c)"
+  },
+  {
+    "premise": "A failed course (score < 4.0) adds no credits.",
+    "fol": "If Score(c) < 4.0 then AccumulatedCredit(c) = 0"
+  },
+  {
+    "premise": "Repeating a failed course adds credits if the new score ≥ 4.0.",
+    "fol": "RepeatCredits(c): If Score(New) ≥ 4.0 then Credit(c) else 0"
+  },
+  {
+    "premise": "A student can withdraw up to 3 courses per academic year if remaining credits ≥ 10 (Year 1, 2) or ≥ 8 (Year 3+); each withdrawal deducts 0.5 credits from total accumulated credits.",
+    "fol": "FORALL(x, y): (Withdrawals(x, y) ≤ 3 ∧ RemainingCredits(x, y, s) ≥ (Year(x) ≤ 2 ? 10 : 8)) → CanWithdrawCourse(x, y, s) ∧ TotalCreditsPenalty(x, -0.5 * Withdrawals(x, y))"
+  },
+  {
+    "premise": "Courses have 3, 4, or 5 credits; withdrawn courses contribute 0 credits to semester GPA.",
+    "fol": "FORALL(c): Credits(c) ∈ {3, 4, 5} ∧ Withdrawn(c) → GPACredits(c) = 0"
+  },
+  {
+    "premise": "Students must register for 12–18 credits per semester; withdrawals reduce semester credits.",
+    "fol": "FORALL(x, s): RegisteredCredits(x, s) ∈ [12, 18] ∧ RemainingCredits(x, s) = RegisteredCredits(x, s) − Sum(WithdrawnCredits(x, s))"
+  },
+  {
+    "premise": "No regulation limits total withdrawals, but max 3 per year.",
+    "fol": "¬EXISTS(r): Regulation(LimitTotalWithdrawals(r)) ∧ FORALL(y): Withdrawals(y) ≤ 3"
+  },
+  {
+    "premise": "A student with < 8 accumulated credits cannot withdraw courses.",
+    "fol": "FORALL(x): TotalCredits(x) < 8 → ¬CanWithdrawCourse(x, _, _)"
+  },
+  {
+    "premise": "A student (Year 2) has 45 credits, withdrew 2 courses in Year 1 (penalty 1 credit), including C1 (4 credits, withdrawn), C2 (3 credits, withdrawn).",
+    "fol": "Student(s1) ∧ Year(s1) = 2 ∧ TotalCredits(s1) = 45 ∧ Withdrawals(s1, Year1) = 2 ∧ TotalCreditsPenalty(s1, -1) ∧ Course(s1, c1, 4, Withdrawn) ∧ Course(s1, c2, 3, Withdrawn)"
+  },
+  {
+    "premise": "In Year 2, semester S1, the student registered for 15 credits, withdrew C3 (5 credits), C4 (3 credits), attempted C5 (4 credits, passed).",
+    "fol": "Courses(s1, Year2, S1) = [c3(5, Withdrawn), c4(3, Withdrawn), c5(4, Passed)] ∧ RegisteredCredits(s1, S1) = 15"
+  },
+  {
+    "premise": "Selecting a major requires ≥ 24 general education credits, general GPA ≥ 2.5 (scale 0–4), all general courses passed (grade ≥ 2.0).",
+    "fol": "FORALL(x): MajorSelection(x) ↔ (GeneralCredits(x) ≥ 24 ∧ GeneralGPA(x) ≥ 2.5 ∧ FORALL(c, GeneralCourse(c) → Grade(x, c) ≥ 2.0))"
+  },
+  {
+    "premise": "General courses are 3 credits; each retake after failing (grade < 2.0) costs $50 per attempt.",
+    "fol": "FORALL(c): GeneralCourse(c) → Credits(c) = 3 ∧ FORALL(x): (Attempts(x, c) > 1 → RetakeFee(x, c, 50 * (Attempts(x, c) − 1)))"
+  },
+  {
+    "premise": "Students must retake failed general courses until passed; no limit on attempts if fees paid.",
+    "fol": "FORALL(x, c): (Grade(x, c) < 2.0 ∧ FeesPaid(x)) → RetakeCourse(x, c) ∧ ¬LimitRetakes(x, c)"
+  },
+  {
+    "premise": "General GPA includes only passed courses; failed attempts contribute 0 credits.",
+    "fol": "FORALL(x): GeneralGPA(x) = Sum(Grade(c) * Credits(c) for GeneralCourse(c), Grade(c) ≥ 2.0) / Sum(Credits(c)) ∧ (Grade(c) < 2.0 → Credits(c) = 0)"
+  },
+  {
+    "premise": "A student has 18 general credits, GPA 2.7, failed C1 (3 credits, grade 1.8, 2 attempts, $100 paid).",
+    "fol": "Student(s1) ∧ GeneralCredits(s1) = 18 ∧ GeneralGPA(s1) = 2.7 ∧ Course(s1, c1, 3, 1.8, Attempts=2) ∧ RetakeFee(s1, c1, 100)"
+  },
+  {
+    "premise": "The student retakes C1 (grade 2.2, $50), passes C2 (3 credits, grade 2.5), pays all fees.",
+    "fol": "Courses(s1) = [c1_reenroll(3, 2.2, Fee=50), c2(3, 2.5)] ∧ FeesPaid(s1)"
+  },
+  {
+    "premise": "On-time graduation requires ≥ 45 credits, all courses scored ≥ 60/100, English test score ≥ 75/100 by 30/06/2025.",
+    "fol": "FORALL(x): GraduateOnTime(x) ↔ (TotalCredits(x) ≥ 45 ∧ FORALL(c, Score(x, c) ≥ 60) ∧ EnglishScore(x) ≥ 75 ∧ EnglishResultDate(x) ≤ '30/06/2025')"
+  },
+  {
+    "premise": "Each course (3 credits) contributes credits = (score/100) × 3; scores < 60 contribute 0 credits.",
+    "fol": "FORALL(x, c): Course(c, 3) → (Score(x, c) ≥ 60 → Credits(x, c) = (Score(x, c) / 100) * 3) ∧ (Score(x, c) < 60 → Credits(x, c) = 0)"
+  },
+  {
+    "premise": "HT grades require $50/attempt removal fee; unresolved HTs by 15/06/2025 block graduation.",
+    "fol": "FORALL(x, c): HT(x, c) → (RemovalFee(x, c, 50 * Attempts(x, c)) ∧ (HTUnresolved(x, c, '15/06/2025') → ¬GraduateOnTime(x)))"
+  },
+  {
+    "premise": "English test results are released 10 days after the test; tests cost $30/attempt.",
+    "fol": "FORALL(x): EnglishResultDate(x) = EnglishTestDate(x) + 10 ∧ EnglishTestFee(x, 30)"
+  },
+  {
+    "premise": "Duy has 42 credits, 2 HT courses (Statistics, Economics, 3 credits each), scores pending.",
+    "fol": "Student(Duy) ∧ TotalCredits(Duy) = 42 ∧ HT(Duy, 'Statistics') ∧ HT(Duy, 'Economics') ∧ Course('Statistics', 3) ∧ Course('Economics', 3)"
+  },
+  {
+    "premise": "Duy submits HT removal for Statistics (score 85, $50, 10/06/2025) and Economics (score 55, $50, 12/06/2025).",
+    "fol": "HTRemoval(Duy, 'Statistics', 85, 50, '10/06/2025') ∧ HTRemoval(Duy, 'Economics', 55, 50, '12/06/2025')"
+  },
+  {
+    "premise": "Duy takes English test on 25/06/2025 (score 80, $30).",
+    "fol": "EnglishTest(Duy, 80, 30, '25/06/2025')"
+  },
+  {
+    "premise": "Choosing a major requires ≥ 30 credits, GPA ≥ 2.5 (scale 0–4), ≤ 2 violations; second-year status (≥ 24 credits).",
+    "fol": "FORALL(x): CanChooseMajor(x) ↔ (TotalCredits(x) ≥ 30 ∧ GPA(x) ≥ 2.5 ∧ Violations(x) ≤ 2 ∧ TotalCredits(x) ≥ 24)"
+  },
+  {
+    "premise": "Each failed course deducts 1 credit; each violation reduces GPA by 0.1.",
+    "fol": "FORALL(x): FailedCourse(x, n) → CreditDeduction(x, n) ∧ Violation(x, m) → GPAPenalty(x, 0.1 * m)"
+  },
+  {
+    "premise": "Students with > 2 violations cannot choose a major, regardless of credits or GPA.",
+    "fol": "FORALL(x): Violations(x) > 2 → ¬CanChooseMajor(x)"
+  },
+  {
+    "premise": "GPA is calculated from passed courses (grade ≥ 1.0); failed courses contribute 0 credits.",
+    "fol": "FORALL(x): GPA(x) = Sum(Grade(c) * Credits(c) for PassedCourse(c, Grade≥1.0)) / Sum(Credits(c)) ∧ FailedCourse(c) → Credits(c) = 0"
+  },
+  {
+    "premise": "A student in year 1 has 20 credits, GPA 2.8, 1 violation (GPA penalty 0.1), failed 1 course (3 credits, 1 credit deducted).",
+    "fol": "Student(s1) ∧ Year(s1) = 1 ∧ TotalCredits(s1) = 20 ∧ GPA(s1) = 2.8 ∧ Violations(s1) = 1 ∧ GPAPenalty(s1, 0.1) ∧ FailedCourse(s1, 1) ∧ CreditDeduction(s1, 1)"
+  },
+  {
+    "premise": "In year 2, the student earns 10 credits (GPA 3.0 for new courses), fails 1 course (4 credits, 1 credit deducted), incurs 1 violation.",
+    "fol": "Year(s1) = 2 ∧ NewCredits(s1, 10) ∧ NewGPA(s1, 3.0) ∧ FailedCourse(s1, 1) ∧ CreditDeduction(s1, 1) ∧ Violations(s1, 1)"
+  },
+  {
+    "premise": "Retaking for improvement is re-registering a previously passed course (same course code) to obtain a higher grade.",
+    "fol": "FORALL(x): ImprovedCourse(x) → SameCourseCode(x) ∧ AlreadyPassed(x)"
+  },
+  {
+    "premise": "Retaking a course (not improvement) means re-registering a failed course.",
+    "fol": "FORALL(x): RetakeCourse(x) → ¬AlreadyPassed(x)"
+  },
+  {
+    "premise": "For improvement retakes, use the highest score if ≥ 4.0; if any attempt fails, deduct 0.3 points per credit from the course’s grade points.",
+    "fol": "FORALL(x): ImprovedCourse(x) → (GPAUse(x) = If Max(Score(All)) ≥ 4.0 then Max else 0; If AnyFailed(x) then Subtract(0.3 × Credits(x)))"
+  },
+  {
+    "premise": "A failed course (score < 4.0) contributes no credits.",
+    "fol": "FORALL(x): Failed(x) → ¬AccumulatedCredits(x)"
+  },
+  {
+    "premise": "Improvement retakes do not change accumulated credits.",
+    "fol": "FORALL(x): ImprovedCourse(x) → AccumulatedCreditsUnchanged(x)"
+  },
+  {
+    "premise": "A student has a GPA of 7.4 with 60 credits, including two courses: C1 (4 credits, original grade 6.8), C2 (3 credits, original grade 5.5).",
+    "fol": "Student(s1) ∧ GPA(s1) = 7.4 ∧ AccumulatedCredits(s1) = 60 ∧ Course(c1, 4, 6.8) ∧ Course(c2, 3, 5.5)"
+  },
+  {
+    "premise": "For C1, the student retook for improvement three times, scoring 7.2, 3.5 (failed), 6.0.",
+    "fol": "ImprovedGrades(s1, c1) = [Attempt1 = 7.2, Attempt2 = 3.5, Attempt3 = 6.0]"
+  },
+  {
+    "premise": "For C2, the student retook for improvement twice, scoring 6.5, 7.0.",
+    "fol": "ImprovedGrades(s1, c2) = [Attempt1 = 6.5, Attempt2 = 7.0]"
+  },
+  {
+    "premise": "After C1’s failure, the student retook C1 (as a failed course) and scored 5.8.",
+    "fol": "RetakeGrade(s1, c1, Attempt4) = 5.8"
+  },
+  {
+    "premise": "The student took a new course, C3 (5 credits, scored 8.0).",
+    "fol": "NewCourse(s1, c3) = (5, 8.0)"
+  },
+  {
+    "premise": "A student can withdraw up to 2 courses per semester if remaining credits ≥ 12; each withdrawal reduces GPA by 0.1 (scale 0–10).",
+    "fol": "ForAll(x, s): (Withdrawals(x, s) ≤ 2 ∧ RemainingCredits(x, s) ≥ (Year(x) = 1 ? 15 : 12)) → CanWithdrawCourse(x, s) ∧ GPAPenalty(x, s, -0.1 * Withdrawals(x, s))"
+  },
+  {
+    "premise": "Failed courses (grade < 4.0) cannot be withdrawn; passing courses (≥ 4.0) contribute 3, 4, or 5 credits.",
+    "fol": "ForAll(c): Grade(c) < 4.0 → ¬CanWithdrawCourse(c); Grade(c) ≥ 4.0 → Credits(c) ∈ {3, 4, 5}"
+  },
+  {
+    "premise": "First-year students (Year 1) need ≥ 15 remaining credits to withdraw; others need ≥ 12.",
+    "fol": "ForAll(x, s): Year(x) = 1 → (CanWithdrawCourse(x, s) → RemainingCredits(x, s) ≥ 15)"
+  },
+  {
+    "premise": "No regulation limits total withdrawals, but max 2 per semester.",
+    "fol": "¬Exists(r): Regulation(LimitTotalWithdrawals(r)) ∧ ForAll(s): Withdrawals(s) ≤ 2"
+  },
+  {
+    "premise": "A student with GPA < 4.0 cannot withdraw courses.",
+    "fol": "ForAll(x): GPA(x) < 4.0 → ¬CanWithdrawCourse(x, _)"
+  },
+  {
+    "premise": "A student (Year 2) has a GPA of 6.5, 40 credits, withdrew 2 courses in semester S1 (GPA penalty 0.2), including C1 (4 credits, 5.5, withdrawn), C2 (3 credits, 3.8, failed, not withdrawn).",
+    "fol": "Student(s1) ∧ Year(s1) = 2 ∧ GPA(s1) = 6.5 ∧ AccumulatedCredits(s1) = 40 ∧ Withdrawals(s1, S1) = 2 ∧ GPAPenalty(s1, S1, -0.2) ∧ Course(s1, c1, 4, 5.5, Withdrawn) ∧ Course(s1, c2, 3, 3.8, Failed)"
+  },
+  {
+    "premise": "In semester S2, the student withdrew C3 (5 credits, 6.0), attempted C4 (3 credits, 4.5), withdrew C5 (4 credits, 5.0).",
+    "fol": "Courses(s1, S2) = [c3(5, 6.0, Withdrawn), c4(3, 4.5), c5(4, 5.0, Withdrawn)]"
+  },
+  {
+    "premise": "Graduation requires ≥ 120 credits, GPA ≥ 5.0 (scale 0–10), and ≥ 100 hours of CTXH (social work).",
+    "fol": "Graduate(s) ↔ AccumulatedCredits(s) ≥ 120 ∧ GPA(s) ≥ 5.0 ∧ CTXH_Hours(s) ≥ 100"
+  },
+  {
+    "premise": "A failed course (grade < 4.0) contributes 0 credits and 0 CTXH hours.",
+    "fol": "FORALL(c): Grade(c) < 4.0 → AccumulatedCredits(c) = 0 ∧ CTXH_Hours(c) = 0"
+  },
+  {
+    "premise": "Improvement retakes of passed courses (grade ≥ 4.0) use the highest grade but add no credits or CTXH.",
+    "fol": "FORALL(c): ImprovedCourse(c) ∧ Grade(c) ≥ 4.0 → GPAUse(c) = Max(Grades(c)) ∧ AccumulatedCreditsUnchanged(c) ∧ CTXH_Unchanged(c)"
+  },
+  {
+    "premise": "Repeating a failed course adds credits and CTXH hours if grade ≥ 4.0.",
+    "fol": "FORALL(c): RepeatCourse(c) ∧ Grade(c) ≥ 4.0 → AccumulatedCredits(c) ∧ CTXH_Hours(c)"
+  },
+  {
+    "premise": "Each course contributes CTXH hours: 3-credit course = 10 hours, 4-credit = 15 hours, 5-credit = 20 hours, if grade ≥ 4.0.",
+    "fol": "FORALL(c): Grade(c) ≥ 4.0 → (Credits(c) = 3 → CTXH_Hours(c) = 10) ∧ (Credits(c) = 4 → CTXH_Hours(c) = 15) ∧ (Credits(c) = 5 → CTXH_Hours(c) = 20)"
+  },
+  {
+    "premise": "Students with ≥ 80 credits and < 100 CTXH hours can join extracurriculars, adding 10 CTXH hours.",
+    "fol": "AccumulatedCredits(s) ≥ 80 ∧ CTXH_Hours(s) < 100 → CanJoinExtracurricular(s) ∧ CTXH_Hours(s) += 10"
+  },
+  {
+    "premise": "A student has a GPA of 6.5 with 85 credits and 200 CTXH hours, including C1 (4 credits, grade 5.8, CTXH 15), C2 (5 credits, grade 7.0, CTXH 20).",
+    "fol": "Student(s1) ∧ GPA(s1) = 6.5 ∧ AccumulatedCredits(s1) = 85 ∧ CTXH_Hours(s1) = 200 ∧ Course(s1, c1, 4, 5.8, 15) ∧ Course(s1, c2, 5, 7.0, 20)"
+  },
+  {
+    "premise": "The student retook C1 (grade 3.5, failed), repeated C1 (grade 6.2), took C3 (3 credits, grade 8.0), and C4 (4 credits, grade 3.8, failed).",
+    "fol": "Courses(s1) = [c1_retake(4, 3.5), c1_repeat(4, 6.2), c3(3, 8.0), c4(4, 3.8)]"
+  },
+  {
+    "premise": "The student joined extracurriculars, adding CTXH hours.",
+    "fol": "JoinedExtracurricular(s1) → CTXH_Hours(s1) += 10"
+  },
+  {
+    "premise": "Students begin specialization before internships or projects.",
+    "fol": "StartSpecialization(s) → Before(Internship(s) ∨ Project(s))"
+  },
+  {
+    "premise": "Internship eligibility requires ≥ 80 credits, third year, and GPA ≥ 6.0 (scale 0–10).",
+    "fol": "EligibleInternship(s) ↔ AccumulatedCredits(s) ≥ 80 ∧ Year(s) = 3 ∧ GPA(s) ≥ 6.0"
+  },
+  {
+    "premise": "Major-specific project requires internship completion, ≥ 90 credits, and ≥ 12 social work days.",
+    "fol": "EligibleMajorProject(s) ↔ After(Internship(s)) ∧ AccumulatedCredits(s) ≥ 90 ∧ SocialWorkDays(s) ≥ 12"
+  },
+  {
+    "premise": "Thesis eligibility requires ≥ 100 credits, ≥ 15 social work days, MOS certificate, and language certificate.",
+    "fol": "EligibleThesis(s) ↔ AccumulatedCredits(s) ≥ 100 ∧ SocialWorkDays(s) ≥ 15 ∧ HasMOSCertificate(s) ∧ HasLanguageCertificate(s)"
+  },
+  {
+    "premise": "A failed course (grade < 4.0) contributes 0 credits.",
+    "fol": "FORALL(c): Grade(c) < 4.0 → AccumulatedCredits(c) = 0"
+  },
+  {
+    "premise": "Improvement retakes (passed courses) use the highest grade but add no credits.",
+    "fol": "FORALL(c): ImprovedCourse(c) → GPAUse(c) = Max(Grades(c)) ∧ AccumulatedCreditsUnchanged(c)"
+  },
+  {
+    "premise": "Repeating a failed course adds credits if grade ≥ 4.0.",
+    "fol": "FORALL(c): RepeatCourse(c) ∧ Grade(c) ≥ 4.0 → AccumulatedCredits(c)"
+  },
+  {
+    "premise": "Graduation requires thesis completion, GPA ≥ 5.0, and ≥ 20 social work days.",
+    "fol": "Graduate(s) ↔ CompletedThesis(s) ∧ GPA(s) ≥ 5.0 ∧ SocialWorkDays(s) ≥ 20"
+  },
+  {
+    "premise": "A student has a GPA of 6.8 with 82 credits, including C1 (4 credits, grade 5.5, failed retake at 3.8), C2 (3 credits, grade 7.0).",
+    "fol": "Student(s1) ∧ GPA(s1) = 6.8 ∧ AccumulatedCredits(s1) = 82 ∧ Course(s1, c1, 4, 5.5, Retake=3.8) ∧ Course(s1, c2, 3, 7.0)"
+  },
+  {
+    "premise": "The student took C3 (5 credits, grade 8.0), repeated C1 (grade 6.0), and took C4 (4 credits, grade 3.5, failed).",
+    "fol": "NewCourses(s1) = [c3(5, 8.0), c1_repeat(4, 6.0), c4(4, 3.5)]"
+  },
+  {
+    "premise": "Scholarships require ≥ 20 credits, GPA ≥ 8.0 ($500 award), or GPA ≥ 9.0 ($1000 award); all courses must have grades ≥ 6.0 (scale 0–10).",
+    "fol": "FORALL(x): eligibleScholarship(x) ↔ (creditsEarned(x) ≥ 20 ∧ FORALL(c, grade(x, c) ≥ 6.0) ∧ (gPA(x) ≥ 9.0 → award(x, 1000)) ∧ (gPA(x) ∈ [8.0, 9.0) → award(x, 500)))"
+  },
+  {
+    "premise": "Credits earned = 0.5 × total grade points (sum of grades across courses); GPA = sum(grade × credits)/total credits.",
+    "fol": "FORALL(x): creditsEarned(x) = 0.5 * sum(grade(x, c)) ∧ gPA(x) = sum(grade(x, c) * credits(c)) / sum(credits(c))"
+  },
+  {
+    "premise": "Scores locked on 15/03/2025; late updates (15/03–20/03/2025) incur $20/day penalty if Faculty-approved.",
+    "fol": "scholarshipCutoffDate = 15/03/2025 ∧ FORALL(x): (scoreUpdated(x) > 15/03/2025 ∧ scoreUpdated(x) ≤ 20/03/2025 ∧ facultyApproved(x)) → penalty(x, 20 * daysLate(x))"
+  },
+  {
+    "premise": "Unapproved late scores are excluded; approved scores after 20/03/2025 are invalid.",
+    "fol": "FORALL(x): (scoreUpdated(x) > 15/03/2025 ∧ (¬facultyApproved(x) ∨ scoreUpdated(x) > 20/03/2025)) → ¬consideredForScholarship(x)"
+  },
+  {
+    "premise": "Minh has 15 credits, GPA 7.8, all grades ≥ 6.0, scores locked on 15/03/2025.",
+    "fol": "student(Minh) ∧ creditsEarned(Minh) = 15 ∧ gPA(Minh) = 7.8 ∧ FORALL(c, grade(Minh, c) ≥ 6.0) ∧ scoreUpdated(Minh) ≤ 15/03/2025"
+  },
+  {
+    "premise": "Minh adds 3 courses: 9.0 (4 credits, updated 17/03/2025), 8.5 (5 credits, 17/03/2025), 7.5 (3 credits, 16/03/2025); Faculty approves delays.",
+    "fol": "newCourses(Minh) = [(9.0, 4, 17/03/2025), (8.5, 5, 17/03/2025), (7.5, 3, 16/03/2025)] ∧ facultyApproved(Minh)"
+  },
+  {
+    "premise": "Minh’s initial courses: 6 credits at 8.0, 9 credits at 7.7.",
+    "fol": "initialCourses(Minh) = [(8.0, 6), (7.7, 9)]"
+  },
+  {
+    "premise": "Registration requires an official schedule (≥ 12 enrolled credits), 12–18 credits/semester, full tuition ($50/credit), no violations.",
+    "fol": "FORALL(x, s): CanRegister(x, s) ↔ (HasOfficialSchedule(x) ∧ RegisteredCredits(x, s) ∈ [12, 18] ∧ TuitionPaid(x, s, 50 * RegisteredCredits(x, s)) ∧ NoUnpaidPenalties(x))"
+  },
+  {
+    "premise": "Partial tuition payment allows registration for credits proportional to payment (1 credit per $50 paid, rounded down).",
+    "fol": "FORALL(x, s): PartialTuition(x, s, p) → MaxCredits(x, s, floor(p / 50))"
+  },
+  {
+    "premise": "Each violation incurs a $25 penalty; unpaid penalties block registration.",
+    "fol": "FORALL(x): Violation(x, n) → Penalty(x, 25 * n) ∧ UnpaidPenalty(x) → ¬CanRegister(x, _)"
+  },
+  {
+    "premise": "Official schedule requires ≥ 10 accumulated credits; max 3 violations allowed before registration ban.",
+    "fol": "FORALL(x): HasOfficialSchedule(x) ↔ TotalCredits(x) ≥ 10 ∧ Violations(x) ≤ 3"
+  },
+  {
+    "premise": "A student with < 8 accumulated credits cannot register, even if other conditions are met.",
+    "fol": "FORALL(x): TotalCredits(x) < 8 → ¬CanRegister(x, _)"
+  },
+  {
+    "premise": "A student has 15 credits, paid $400 tuition, 2 violations ($50 unpaid), no official schedule.",
+    "fol": "Student(s1) ∧ TotalCredits(s1) = 15 ∧ TuitionPaid(s1, s1, 400) ∧ Violations(s1) = 2 ∧ Penalty(s1, 50) ∧ UnpaidPenalty(s1) ∧ ¬HasOfficialSchedule(s1)"
+  },
+  {
+    "premise": "The student pays $200 more tuition, clears 1 violation ($25), enrolls 14 credits (schedule granted), incurs 1 new violation ($25).",
+    "fol": "TuitionPaid(s1, s2, 200) ∧ ViolationsCleared(s1, 1) ∧ PenaltyPaid(s1, 25) ∧ RegisteredCredits(s1, s2, 14) ∧ HasOfficialSchedule(s1) ∧ Violations(s1, 1) ∧ Penalty(s1, 25)"
+  },
+  {
+    "premise": "Graduation requires ≥ 130 credits, GPA ≥ 5.5 (scale 0–10), ≥ 120 CTXH hours, and a certificate.",
+    "fol": "Graduate(s) ↔ AccumulatedCredits(s) ≥ 130 ∧ GPA(s) ≥ 5.5 ∧ CTXH_Hours(s) ≥ 120 ∧ HasCertificate(s)"
+  },
+  {
+    "premise": "Each course (≥ 4.0 grade) contributes: 3 credits = 8 CTXH hours, 4 credits = 12 hours, 5 credits = 16 hours.",
+    "fol": "FORALL(c): Grade(c) ≥ 4.0 → (Credits(c) = 3 → CTXH_Hours(c) = 8) ∧ (Credits(c) = 4 → CTXH_Hours(c) = 12) ∧ (Credits(c) = 5 → CTXH_Hours(c) = 16)"
+  },
+  {
+    "premise": "Failed courses (grade < 4.0) add 0 credits, 0 CTXH hours.",
+    "fol": "FORALL(c): Grade(c) < 4.0 → AccumulatedCredits(c) = 0 ∧ CTXH_Hours(c) = 0"
+  },
+  {
+    "premise": "Social activities contribute CTXH: club = 20 hours, event = 10 hours; requires ≥ 50 credits to join.",
+    "fol": "AccumulatedCredits(s) ≥ 50 → (Club(s) → CTXH_Hours(s) += 20) ∧ (Event(s) → CTXH_Hours(s) += 10)"
+  },
+  {
+    "premise": "Students with GPA < 6.0 get 0.5 CTXH hours per credit instead of standard course hours.",
+    "fol": "GPA(s) < 6.0 → CTXH_Hours(c) = 0.5 × AccumulatedCredits(c)"
+  },
+  {
+    "premise": "A student has a GPA of 5.8 with 90 credits, 180 CTXH hours, no certificate, including C1 (3 credits, grade 6.0, CTXH 0), C2 (4 credits, grade 5.5, CTXH 0).",
+    "fol": "Student(s1) ∧ GPA(s1) = 5.8 ∧ AccumulatedCredits(s1) = 90 ∧ CTXH_Hours(s1) = 180 ∧ ¬HasCertificate(s1) ∧ Course(s1, c1, 3, 6.0, 0) ∧ Course(s1, c2, 4, 5.5, 0)"
+  },
+  {
+    "premise": "The student took C3 (5 credits, grade 7.0), C4 (3 credits, grade 3.8, failed), joined 2 clubs and 3 events.",
+    "fol": "Courses(s1) = [c3(5, 7.0), c4(3, 3.8)] ∧ Clubs(s1) = 2 ∧ Events(s1) = 3"
+  },
+  {
+    "premise": "Electives require 3 courses from group A (6 credits each), 3 from group B (4 credits each), and 1 from group C (3 credits) for a total of 21 credits.",
+    "fol": "FORALL(x): RequiredElectives(x) = {A:3, Credits=6; B:3, Credits=4; C:1, Credits=3} ∧ TotalCredits(x) = 21"
+  },
+  {
+    "premise": "DTBTL = sum(grade × credits) / total credits for selected electives (scale 0–10); DTBTLN excludes non-major courses.",
+    "fol": "FORALL(x): DTBTL(x) = Sum(Grade(x, c) * Credits(c)) / Sum(Credits(c)) ∧ DTBTLN(x) = Sum(Grade(x, c) * Credits(c) | MajorCourse(c)) / Sum(Credits(c) | MajorCourse(c))"
+  },
+  {
+    "premise": "Extra elective courses incur $10/credit fee; highest-scoring subset selected to meet A:3, B:3, C:1.",
+    "fol": "FORALL(x): ExtraElectives(x) → (Fee(x, 10 * Credits(c)) ∧ SelectHighestScoring(x, {A:3, B:3, C:1}))"
+  },
+  {
+    "premise": "Student takes 4 group A courses (grades: 8.0, 7.0, 9.0, 6.5; 6 credits each), 4 group B courses (6.0, 7.5, 8.0, 8.5; 4 credits each), 2 group C courses (7.0, 8.0; 3 credits each); group A is non-major.",
+    "fol": "Courses(x) = {A: [(8.0, 6), (7.0, 6), (9.0, 6), (6.5, 6)], B: [(6.0, 4), (7.5, 4), (8.0, 4), (8.5, 4)], C: [(7.0, 3), (8.0, 3)]} ∧ ¬MajorCourse(A)"
+  },
+  {
+    "premise": "Total program credits are 120; internship eligibility requires ≥ 78 credits (65%), GPA ≥ 6.0 (scale 0–10), and ≥ 50 internship prep hours.",
+    "fol": "TotalCredits = 120 ∧ EligibleForInternship(s) ↔ AccumulatedCredits(s) ≥ 78 ∧ GPA(s) ≥ 6.0 ∧ PrepHours(s) ≥ 50"
+  },
+  {
+    "premise": "First-year students (Year 1) have < 40 credits.",
+    "fol": "FORALL(x): Year(x) = 1 → AccumulatedCredits(x) < 40"
+  },
+  {
+    "premise": "Failed courses (grade < 4.0) contribute 0 credits.",
+    "fol": "FORALL(c): Grade(c) < 4.0 → AccumulatedCredits(c) = 0"
+  },
+  {
+    "premise": "Improvement retakes (grade ≥ 4.0) use highest grade, no extra credits.",
+    "fol": "FORALL(c): ImprovedCourse(c) ∧ Grade(c) ≥ 4.0 → GPAUse(c) = Max(Grades(c)) ∧ AccumulatedCreditsUnchanged(c)"
+  },
+  {
+    "premise": "Each course (grade ≥ 4.0) adds prep hours: 3 credits = 5 hours, 4 credits = 7 hours, 5 credits = 10 hours.",
+    "fol": "FORALL(c): Grade(c) ≥ 4.0 → (Credits(c) = 3 → PrepHours(c) = 5) ∧ (Credits(c) = 4 → PrepHours(c) = 7) ∧ (Credits(c) = 5 → PrepHours(c) = 10)"
+  },
+  {
+    "premise": "Third-year students (Year 3) with < 78 credits can join prep workshops (20 hours), if GPA ≥ 5.5.",
+    "fol": "Year(x) = 3 ∧ AccumulatedCredits(x) < 78 ∧ GPA(x) ≥ 5.5 → PrepHours(x) += 20"
+  },
+  {
+    "premise": "A student (Year 2) has a GPA of 6.2, 80 credits, 120 prep hours, including C1 (3 credits, 5.8, 5 hours), C2 (4 credits, 6.5, 7 hours).",
+    "fol": "Student(s1) ∧ Year(s1) = 2 ∧ GPA(s1) = 6.2 ∧ AccumulatedCredits(s1) = 80 ∧ PrepHours(s1) = 120 ∧ Course(s1, c1, 3, 5.8, 5) ∧ Course(s1, c2, 4, 6.5, 7)"
+  },
+  {
+    "premise": "The student took C3 (5 credits, 7.0), retook C1 (6.8), took C4 (3 credits, 3.5, failed).",
+    "fol": "Courses(s1) = [c3(5, 7.0), c1_retake(3, 6.8), c4(3, 3.5)]"
+  },
+  {
+    "premise": "Thesis eligibility requires ≥ 100 credits, GPA ≥ 5.5 (scale 0–10), capstone completion, and ≥ 80 capstone hours.",
+    "fol": "EligibleForThesis(s) ↔ AccumulatedCredits(s) ≥ 100 ∧ GPA(s) ≥ 5.5 ∧ CompletedCapstone(s) ∧ CapstoneHours(s) ≥ 80"
+  },
+  {
+    "premise": "Capstone completion requires ≥ 80 credits and a 5-credit capstone course (grade ≥ 4.0).",
+    "fol": "CompletedCapstone(s) ↔ AccumulatedCredits(s) ≥ 80 ∧ ∃c: CapstoneCourse(c) ∧ Credits(c) = 5 ∧ Grade(c) ≥ 4.0"
+  },
+  {
+    "premise": "Failed courses (grade < 4.0) add 0 credits, 0 capstone hours.",
+    "fol": "FORALL(c): Grade(c) < 4.0 → AccumulatedCredits(c) = 0 ∧ CapstoneHours(c) = 0"
+  },
+  {
+    "premise": "Improvement retakes (grade ≥ 4.0) use highest grade, no extra credits/hours.",
+    "fol": "FORALL(c): ImprovedCourse(c) ∧ Grade(c) ≥ 4.0 → GPAUse(c) = Max(Grades(c)) ∧ AccumulatedCreditsUnchanged(c) ∧ CapstoneHoursUnchanged(c)"
+  },
+  {
+    "premise": "Each course (grade ≥ 4.0) adds capstone hours: 3 credits = 6 hours, 4 credits = 8 hours, 5 credits = 10 hours.",
+    "fol": "FORALL(c): Grade(c) ≥ 4.0 → (Credits(c) = 3 → CapstoneHours(c) = 6) ∧ (Credits(c) = 4 → CapstoneHours(c) = 8) ∧ (Credits(c) = 5 → CapstoneHours(c) = 10)"
+  },
+  {
+    "premise": "Final-year students (Year 4) with capstone but < 80 hours can join capstone workshops (15 hours), if GPA ≥ 5.0.",
+    "fol": "Year(x) = 4 ∧ CompletedCapstone(x) ∧ CapstoneHours(x) < 80 ∧ GPA(x) ≥ 5.0 → CapstoneHours(x) += 15"
+  },
+  {
+    "premise": "A student (Year 3) has a GPA of 5.8, 85 credits, 100 capstone hours, no capstone course, including C1 (3 credits, 6.0, 6 hours), C2 (4 credits, 5.5, 8 hours).",
+    "fol": "Student(s1) ∧ Year(s1) = 3 ∧ GPA(s1) = 5.8 ∧ AccumulatedCredits(s1) = 85 ∧ CapstoneHours(s1) = 100 ∧ ¬CompletedCapstone(s1) ∧ Course(s1, c1, 3, 6.0, 6) ∧ Course(s1, c2, 4, 5.5, 8)"
+  },
+  {
+    "premise": "The student took capstone course C3 (5 credits, 4.5), retook C1 (6.5), took C4 (3 credits, 3.8, failed), joined 2 workshops.",
+    "fol": "Courses(s1) = [c3_capstone(5, 4.5), c1_retake(3, 6.5), c4(3, 3.8)] ∧ Workshops(s1) = 2"
   }
 ]
